@@ -1,6 +1,5 @@
 package com.sofkau.stepdefinitions;
 
-import com.sofkau.models.rest.PutJsonPlaceholder;
 import com.sofkau.models.rest.Response;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
@@ -20,9 +19,9 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class UpdatePostPlaceholderStepDefinition extends ApiSetUp {
 
-    PutJsonPlaceholder put = new PutJsonPlaceholder();
+    Response put = new Response();
 
-    private Logger LOGGER = Logger.getLogger(UpdatePostPlaceholderStepDefinition.class);
+    private final Logger LOGGER = Logger.getLogger(UpdatePostPlaceholderStepDefinition.class);
 
     @Given("estoy en la pagina de actualizacion de jsonplaceholder")
     public void estoyEnLaPaginaDeActualizacionDeJsonplaceholder() {

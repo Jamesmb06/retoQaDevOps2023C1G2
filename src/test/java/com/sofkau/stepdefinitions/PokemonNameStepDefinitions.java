@@ -20,10 +20,11 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class PokemonNameStepDefinitions extends ApiSetUp {
 
-    private Logger LOGGER = Logger.getLogger(PokemonNameStepDefinitions.class);
+    private final Logger LOGGER = Logger.getLogger(PokemonNameStepDefinitions.class);
 
     @Given("el usuario esta en la PokeApi")
     public void elUsuarioEstaEnLaPokeApi() {
+
         setUp(POKE_API_URL.getValue());
     }
 

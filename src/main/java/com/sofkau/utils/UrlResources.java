@@ -8,7 +8,13 @@ public enum UrlResources {
     POKEMON("pokemon/"),
     BASE_JSON_URL("https://jsonplaceholder.typicode.com/"),
     DELETE_ALBUM("albums/"),
-    PUT_POST_RESOURCE("posts/");
+    PUT_POST_RESOURCE("posts/"),
+    SOAP_DIVISA_BASE_URL("http://fx.currencysystem.com/"),
+    RESOURCE_DIVISA("webservices/CurrencyServer4.asmx"),
+    BODY_PATH1("src/test/resources/soapXml/filedivisas.xml"),
+    SOAP_CALCULADORA_BASE_URL("http://www.dneonline.com/"),
+    RESOURCE_CALCULADORA("calculator.asmx"),
+    BODY_PATH2("src/test/resources/soapXml/filecalculadora.xml");
 
     private final String value;
 

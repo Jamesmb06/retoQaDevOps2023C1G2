@@ -2,9 +2,6 @@ package com.sofkau.models.rest;
 
 
 public class Response {
-    private Integer id;
-    private String error;
-    private String token;
     private String title;
     private String body;
 
@@ -24,27 +21,4 @@ public class Response {
         this.body = body;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 }
