@@ -41,7 +41,7 @@ public class ObtenerAnimePorIDJinkanStepDefinition extends ApiSetUp {
                     doGet()
                             .withTheResource((ANIME_JINKAN_RESOURCE.getValue()+id))
             );
-              System.out.println(SerenityRest.lastResponse().body().asString());
+            LOGGER.info(SerenityRest.lastResponse().body().asString());
 
 
             LOGGER.info("Realiza la peticion");
@@ -50,7 +50,6 @@ public class ObtenerAnimePorIDJinkanStepDefinition extends ApiSetUp {
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
 
 
@@ -68,6 +67,8 @@ public class ObtenerAnimePorIDJinkanStepDefinition extends ApiSetUp {
 
         }catch (Exception e){
             LOGGER.warn(e.getMessage());
+            LOGGER.warn(e.getMessage());
+            Assertions.fail();
         }
     }
 

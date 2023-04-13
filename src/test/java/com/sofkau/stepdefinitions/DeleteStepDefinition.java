@@ -38,7 +38,7 @@ public class DeleteStepDefinition extends ApiSetUp {
             doDelete()
                     .conElRecurso((PLACE_DELETE_POST.getValue() + int1))
     );
-    System.out.println(SerenityRest.lastResponse().body().asString());
+    LOGGER.info(SerenityRest.lastResponse().body().asString());
     LOGGER.info("Realiza la peticion");
 
 
