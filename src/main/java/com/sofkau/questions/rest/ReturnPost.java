@@ -12,7 +12,7 @@ public class ReturnPost implements Question<Response> {
         return (Response) SerenityRest.lastResponse().body();
     }
 
-    public static ReturnPost returnUpdateSuccessfulJsonResponse(){
+    public static ReturnPost returnResponse(){
         return new ReturnPost();
     }
 }

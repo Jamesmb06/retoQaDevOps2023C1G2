@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.logging.Logger;
 
-import static com.sofkau.questions.rest.ReturnPost.returnUpdateSuccessfulJsonResponse;
+import static com.sofkau.questions.rest.ReturnPost.returnResponse;
 import static com.sofkau.tasks.DoPatch.doPatch;
 import static com.sofkau.utils.UrlResources.BASE_JSON_URL;
 import static com.sofkau.utils.UrlResources.PUT_JSON_URL;
@@ -34,7 +34,7 @@ public class FotosStepDefinition extends ApiSetUp {
         try {
             setUp( BASE_JSON_URL.getValue());
 
-            LOGGER.info("Inicio de automatización ");
+            LOGGER.info("Iniciando automatización en API placeholder");
         } catch (Exception e) {
             LOGGER.info(" fallo configuración inicial");
             LOGGER.warning(e.getMessage());
@@ -65,7 +65,7 @@ public class FotosStepDefinition extends ApiSetUp {
     @Then("la pagina retornara un estatus con codigo {int} y con el nuevo albumId {string} titulo y  {string}")
     public void laPaginaRetornaraUnEstatusConCodigoYConElNuevoAlbumIdTituloY(Integer code,  String albumId,String title) {
         try {
-            Response actualResponse = returnUpdateSuccessfulJsonResponse().answeredBy(actor);
+            Response actualResponse = returnResponse().answeredBy(actor);
             responseBody = (JSONObject) parser.parse(actualResponse.getBody().asString());
             actor.should(
                     seeThatResponse("El codigo de respuesta es: " + HttpStatus.SC_OK,

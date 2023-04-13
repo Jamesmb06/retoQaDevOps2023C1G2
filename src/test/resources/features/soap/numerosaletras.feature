@@ -1,13 +1,13 @@
-Feature: Convert number to English letters
+Feature: Convercion de numeros a letras
   AS
-  user
+  usuario del servicio
   I WANT
-  get
+  obtener
   SO THAT
-  see numbers in letters
+  mirar numeros en letras
 
   @numbersinletters
-  Scenario: numbers in letters
-    Given a user that wants to know the numbers in letters
-    When the user sends the request to the api Number Conversion Service
-    Then the user gets the numbers in letteres
+  Scenario: convertir numeros a letras
+    Given el usuario quiere convertir numeros a letras
+    When el usuario envia la solicitud al servicio de conversion de numeros api
+    Then el usuario obtiene los numeros en letras

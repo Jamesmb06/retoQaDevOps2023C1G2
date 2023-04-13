@@ -12,7 +12,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
 import java.util.logging.Logger;
-import static com.sofkau.questions.rest.ReturnPost.returnUpdateSuccessfulJsonResponse;
+
+import static com.sofkau.questions.rest.ReturnPost.returnResponse;
 import static com.sofkau.tasks.DoPost.doPost;
 import static com.sofkau.utils.UrlResources.REQRES_BASE_URL_PUT;
 import static com.sofkau.utils.UrlResources.RESOURCES_POST;
@@ -67,7 +68,7 @@ public class RegisterStepDefinition extends ApiSetUp {
     @Then("el usuario ve un codigo de respuesta de estado {int} y una identificacion con un token")
     public void elUsuarioVeUnCodigoDeRespuestaDeEstadoYUnaIdentificacionConUnToken(Integer statusCode) {
         try {
-            Response actualResponse = returnUpdateSuccessfulJsonResponse().answeredBy(actor);
+            Response actualResponse = returnResponse().answeredBy(actor);
             responseBody = (JSONObject) parser.parse(actualResponse.getBody().asString());
             actor.should(
                     seeThatResponse("El codigo de respuesta es: " + HttpStatus.SC_OK,

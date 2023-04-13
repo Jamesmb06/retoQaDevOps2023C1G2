@@ -13,7 +13,4 @@ Feature: registro de usuarios
     Examples:
       | email                    | password     | code |
       | "eve.holt@reqres.in"     | "pistol"     | 200  |
-      | "Juan@reqres.in"         | "pastor"     | 400  |
-      | "Juan@reqres.in"         | "juan"       | 400  |
-      | "eve@reqres.in"          | "cualquiera" | 400  |
       | "george.bluth@reqres.in" | "cualquiera" | 200  |

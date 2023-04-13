@@ -20,12 +20,11 @@ import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeT
 public class NumbersLettersStepDefinitions extends ApiSetUp {
     String body;
     private static final Logger LOGGER = Logger.getLogger(NumbersLettersStepDefinitions.class);
-    @Given("a user that wants to know the numbers in letters")
-
-    public void aUserThatWantsToKnowTheNumbersInLetters() {
+    @Given("el usuario quiere convertir numeros a letras")
+    public void elUsuarioQuiereConvertirNumerosALetras() {
         try {
             setUp(SOAP_NUMBER_CONVERSION_BASE_URL.getValue());
-            LOGGER.info("INICIA LA AUTOMATIZACION");
+            LOGGER.info("Inicio de automatización en servicio SOAP number conversion");
             loadBody();
         } catch (Exception e) {
             LOGGER.info(" fallo la configuracion inicial");
@@ -34,8 +33,8 @@ public class NumbersLettersStepDefinitions extends ApiSetUp {
         }
     }
 
-    @When("the user sends the request to the api Number Conversion Service")
-    public void theUserSendsTheRequestToTheApiNumberConversionService() {
+    @When("el usuario envia la solicitud al servicio de conversion de numeros api")
+    public void elUsuarioEnviaLaSolicitudAlServicioDeConversionDeNumerosApi() {
         try {
             actor.attemptsTo(
                     doPostSoap()
@@ -51,8 +50,8 @@ public class NumbersLettersStepDefinitions extends ApiSetUp {
         }
     }
 
-    @Then("the user gets the numbers in letteres")
-    public void theUserGetsTheNumbersInLetteres() {
+    @Then("el usuario obtiene los numeros en letras")
+    public void elUsuarioObtieneLosNumerosEnLetras() {
         try {
             LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
             actor.should(

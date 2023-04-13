@@ -5,13 +5,13 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-public class ReturnPutSuccessPlaceholder implements Question<ResponseUpdateUser> {
+public class ReturnResponse implements Question<ResponseUpdateUser> {
     @Override
     public ResponseUpdateUser answeredBy(Actor actor) {
         return SerenityRest.lastResponse().as(ResponseUpdateUser.class);
     }
 
-    public static ReturnPutSuccessPlaceholder returnUpdateJsonResponse(){
-        return new ReturnPutSuccessPlaceholder();
+    public static ReturnResponse returnUpdateJsonResponse(){
+        return new ReturnResponse();
     }
 }

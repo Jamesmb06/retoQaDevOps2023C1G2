@@ -16,7 +16,7 @@ import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
 import java.util.logging.Logger;
 
-import static com.sofkau.questions.rest.ReturnPost.returnUpdateSuccessfulJsonResponse;
+import static com.sofkau.questions.rest.ReturnPost.returnResponse;
 import static com.sofkau.tasks.DoPost.doPost;
 import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -40,9 +40,9 @@ public class CrearPostStepDefinition extends ApiSetUp {
         try {
             setUp(BASE_JSON_URL.getValue());
             LOGGER.info("API disponibles para realizar la peticion");
-            LOGGER.info("Inicio de automatización ");
+            LOGGER.info("Inicio de automatización en API placeholder ");
         } catch (Exception e) {
-            LOGGER.info(" fallo configuración inicial");
+            LOGGER.info(" fallo configuración inicial de API placeholder");
             LOGGER.warning(e.getMessage());
             Assertions.fail();
         }
@@ -72,7 +72,7 @@ public class CrearPostStepDefinition extends ApiSetUp {
     @Then("la pagina retornara un estatus con codigo {int} y con userId {string} titulo {string} y post  {string}")
     public void laPaginaRetornaraUnEstatusConCodigoYConUserIdTituloYPost(Integer code, String userId, String title, String body) {
         try {
-            Response actualResponse = returnUpdateSuccessfulJsonResponse().answeredBy(actor);
+            Response actualResponse = returnResponse().answeredBy(actor);
             responseBody = (JSONObject) parser.parse(actualResponse.getBody().asString());
             actor.should(
                     seeThatResponse("El codigo de respuesta es: " + HttpStatus.SC_OK,
@@ -88,7 +88,7 @@ public class CrearPostStepDefinition extends ApiSetUp {
             );
             LOGGER.info("Datos esperados y actuales correctos");
         } catch (Exception e) {
-            LOGGER.info(" fallo la asserción");
+            LOGGER.info(" fallo la asserción en la API placeholder");
             LOGGER.warning(e.getMessage());
             Assertions.fail();
         }
