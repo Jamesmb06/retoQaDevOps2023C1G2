@@ -4,7 +4,7 @@ Feature: Consultar numero de celular  de un país
   Para poder conocer el numero  de un país
 
   @NumeroCelularPorPais
-  Scenario Outline:
+  Scenario Outline:Obtener el indicativo de un pais segun el codigo ISO
     Given El servicio de Country Info Service SOAP esta disponible y estable
     When Envio el codigo ISO del pais <codigoISO> para consultar el numero de celular
     Then deberia obtener el  <numeroCelular>  y el <status> de la respuesta

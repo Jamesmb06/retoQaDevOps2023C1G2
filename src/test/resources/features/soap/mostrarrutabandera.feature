@@ -3,7 +3,7 @@ Feature: Consultar bandera de un país
   Quiero consultar la bandera de un país
   Para poder conocer la bandera de un país
 
-  Scenario Outline:
+  Scenario Outline: Obtener bandera de un pais segun el codigo ISO
     Given El servicio de Country Info Service SOAP esta disponible
     When Envio el codigo ISO del pais <codigoISO>
     Then deberia obtener la <bandera>  y el <status> de la respuesta
