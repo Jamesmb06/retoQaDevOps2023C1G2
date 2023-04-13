@@ -23,7 +23,6 @@ import static com.sofkau.utils.ManageFile.readFile;
 import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.IsNull.notNullValue;
 
 public class CambioDivisasStepDefinitions extends ApiSetUp {

@@ -16,6 +16,8 @@ public enum UrlResources {
     RESOURCE_CALCULADORA("calculator.asmx"),
     BODY_PATH2("src/test/resources/soapXml/filecalculadora.xml");
 
+
+
     private final String value;
 
     UrlResources(String value){

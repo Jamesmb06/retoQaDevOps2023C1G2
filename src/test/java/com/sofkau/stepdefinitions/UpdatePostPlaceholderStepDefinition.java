@@ -9,7 +9,7 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
-import static com.sofkau.questions.rest.ReturnPutSuccessPlaceholder.returnPutSuccessPlaceholder;
+import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoPut.doPut;
 import static com.sofkau.utils.UrlResources.BASE_JSON_URL;
 import static com.sofkau.utils.UrlResources.PUT_POST_RESOURCE;
@@ -47,7 +47,7 @@ public class UpdatePostPlaceholderStepDefinition extends ApiSetUp {
     @Then("me debe devolver el post actualizado {int}, {string}")
     public void meDebeDevolverElPostActualizado(Integer int1, String string) {
         try {
-            Response actualResponse = returnPutSuccessPlaceholder().answeredBy(actor);
+            Response actualResponse = (Response) returnResponse().answeredBy(actor);
             actor.should(
                     seeThatResponse("El codigo de respuesta es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(int1)),

@@ -1,4 +1,4 @@
-Feature: Nombre de pokemones
+Feature: verificar mombres de pokemones registrados en PokeApi
   Yo como usuario de pokeapi
   quiero saber llos nombres de pokemones disponibles en el sitio
   para poder saber cuales estan registrados

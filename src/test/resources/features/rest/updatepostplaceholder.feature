@@ -1,4 +1,4 @@
-Feature: Actualizando un Post
+Feature: Actualizando un Post en jsonplaceholder
   Yo como usuario de la pagina jsonplaceholder
   Quiero actualizar un post
   para luego editarlo

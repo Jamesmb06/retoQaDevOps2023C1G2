@@ -91,5 +91,4 @@ public class CalculadoraSumaStepDefinitions extends ApiSetUp {
     private void loadBody() {
         body = readFile(BODY_PATH2.getValue());
     }
-
 }

@@ -18,32 +18,14 @@ public class DoGet implements Task {
         this.resource=resource;
         return this;
     }
-
-    public DoGet withThePokemon(String pokemon){
+        public DoGet withThePokemon(String pokemon){
         this.pokemon = pokemon;
         return this;
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Get.resource(resource+pokemon)
-        );
-    }
-
-    public static DoGet doGet(){
-        return new DoGet();
-    }
-}
-/*    private String resource;
-
-    public DoGet withTheResource(String resource){
-        this.resource=resource;
-        return this;
-    }
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                OurGet.to(resource)
+                OurGet.to(resource+pokemon)
                         .with(RequestSpecification::relaxedHTTPSValidation)
                         .with(request->request.contentType(ContentType.JSON))
         );
@@ -53,5 +35,3 @@ public class DoGet implements Task {
         return new DoGet();
     }
 }
-
- */
