@@ -9,10 +9,11 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
+
 import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoPut.doPut;
-import static com.sofkau.utils.UrlResources.BASE_JSON_URL;
-import static com.sofkau.utils.UrlResources.PUT_POST_RESOURCE;
+import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.Matchers.notNullValue;
@@ -25,7 +26,14 @@ public class UpdatePostPlaceholderStepDefinition extends ApiSetUp {
 
     @Given("estoy en la pagina de actualizacion de jsonplaceholder")
     public void estoyEnLaPaginaDeActualizacionDeJsonplaceholder() {
-        setUp(BASE_JSON_URL.getValue());
+        try {
+            setUp(BASE_JSON_URL.getValue());
+            LOGGER.info("INICIA LA AUTOMATIZACION");
+        } catch (Exception e) {
+            LOGGER.info("Fallo la configuracion inicial");
+            LOGGER.error(e.getMessage());
+            Assertions.fail();
+        }
     }
 
     @When("actualizo la informacion de un post {string}, {string}, {int}")
@@ -41,6 +49,7 @@ public class UpdatePostPlaceholderStepDefinition extends ApiSetUp {
             LOGGER.info("Response body: " + SerenityRest.lastResponse().asString());
         } catch (Exception e) {
             LOGGER.error("Error updating post: " + e.getMessage());
+            Assertions.fail();
         }
     }
 

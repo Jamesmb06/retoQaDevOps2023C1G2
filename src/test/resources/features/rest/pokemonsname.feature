@@ -9,8 +9,8 @@ Feature: verificar mombres de pokemones registrados en PokeApi
     Then se valida que el <codigo> de respuesta sea correcto y que el "<pokemon>" y el <id> sean correcto
 
     Examples:
-      | codigo | pokemon   | id |
-      | 200    | bulbasaur | 1  |
-      | 200    | ivysaur   | 2  |
-      | 400    | charmande | 4  |
+      | codigo | pokemon    | id |
+      | 200    | bulbasaur  | 1  |
+      | 200    | ivysaur    | 2  |
+      | 200    | charmander | 4  |
 

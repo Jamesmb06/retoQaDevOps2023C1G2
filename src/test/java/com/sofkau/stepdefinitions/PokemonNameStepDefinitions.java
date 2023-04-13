@@ -10,6 +10,8 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
+
 import static com.sofkau.tasks.DoGet.doGet;
 import static com.sofkau.utils.UrlResources.POKEMON;
 import static com.sofkau.utils.UrlResources.BASE_POKE_URL;
@@ -24,8 +26,15 @@ public class PokemonNameStepDefinitions extends ApiSetUp {
 
     @Given("el usuario esta en la PokeApi")
     public void elUsuarioEstaEnLaPokeApi() {
+        try {
+            setUp(BASE_POKE_URL.getValue());
+            LOGGER.info("INICIA LA AUTOMATIZACION");
+        }catch (Exception e) {
+            LOGGER.info("Fallo la configuracion inicial");
+            LOGGER.error(e.getMessage());
+            Assertions.fail();
+        }
 
-        setUp(BASE_POKE_URL.getValue());
     }
 
     @When("el usuario hace la peticion con {string}")
@@ -38,6 +47,7 @@ public class PokemonNameStepDefinitions extends ApiSetUp {
             );
         } catch (Exception e) {
             LOGGER.error("Error making request: " + e.getMessage());
+            Assertions.fail();
         }
     }
 
@@ -63,6 +73,7 @@ public class PokemonNameStepDefinitions extends ApiSetUp {
             LOGGER.info("Pokemon Name: " + pokemonName);
         } catch (Exception e) {
             LOGGER.error("Error validating response: " + e.getMessage());
+            Assertions.fail();
         }
     }
 }
