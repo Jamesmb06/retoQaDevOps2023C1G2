@@ -1,6 +1,5 @@
 package com.sofkau.models.rest;
 
-
 public class Response {
     private String title;
     private String body;

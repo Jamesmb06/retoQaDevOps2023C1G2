@@ -10,7 +10,6 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
-
 import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoPut.doPut;
 import static com.sofkau.utils.UrlResources.*;
