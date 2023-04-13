@@ -25,11 +25,11 @@ public class CurrencyNameStepDefinitions extends ApiSetUp {
     @Given("Dado que tengo acceso al servicio SOAP de Listar las monedas de cada pais")
     public void dadoQueTengoAccesoAlServicioSOAPDeListarLasMonedasDeCadaPais() {
         try {
+            LOGGER.info("INICIA LA AUTOMATIZACION DE CURRENCY");
             setUp(SOAP_CAPITAL_BASE_URL.getValue());
-            LOGGER.info("INICIA LA AUTOMATIZACION");
         } catch (Exception e) {
-            LOGGER.info(" fallo la configuracion inicial");
             LOGGER.warn(e.getMessage());
+            LOGGER.info(" fallo la configuracion inicial de currency test");
             Assertions.fail();
         }
     }
@@ -37,12 +37,12 @@ public class CurrencyNameStepDefinitions extends ApiSetUp {
     @Given("que he ingresado el codigo ISO de un pais valido {string}")
     public void queHeIngresadoElCodigoISODeUnPaisValido(String code) {
         try {
-            LOGGER.info("SE CARGA EL BODY");
-            loadBody(code);
+            loadBodyCurrency(code);
+            LOGGER.info("SE CARGA EL BODY DE CURRENCY");
         } catch (Exception e) {
-            LOGGER.info(" fallo la carga del body");
-            LOGGER.warn(e.getMessage());
             Assertions.fail();
+            LOGGER.warn(e.getMessage());
+            LOGGER.info(" fallo la carga del body de currency");
         }
     }
 
@@ -55,11 +55,11 @@ public class CurrencyNameStepDefinitions extends ApiSetUp {
                             .withTheHeaders(headers().getHeadersCollection())
                             .andTheBody(body)
             );
-            LOGGER.info("Realiza la peticion");
+            LOGGER.info("Realiza la peticion a la API SOAP");
         } catch (Exception e) {
-            LOGGER.info(" fallo al momento de realizar la peticion");
-            LOGGER.warn(e.getMessage());
             Assertions.fail();
+            LOGGER.warn(e.getMessage());
+            LOGGER.info(" fallo al momento de realizar la peticion de get currency");
         }
     }
 
@@ -68,13 +68,13 @@ public class CurrencyNameStepDefinitions extends ApiSetUp {
         try {
             LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
             actor.should(
-                    seeThatResponse("el codigo de respuesta es: " + HttpStatus.SC_OK,
+                    seeThatResponse("el codigo de respuesta de la API de currency es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(HttpStatus.SC_OK))
             );
-            LOGGER.info("CUMPLE");
+            LOGGER.info("CUMPLE CON LO ESPERADO DE CURRENCY");
         } catch (Exception e) {
-            LOGGER.info("Error al realizar la comparacion");
             LOGGER.warn(e.getMessage());
+            LOGGER.info("Error al realizar la comparacion de las monedas");
             Assertions.fail();
         }
     }
@@ -87,16 +87,16 @@ public class CurrencyNameStepDefinitions extends ApiSetUp {
                     seeThat(" El nombre de la moneda es",
                             responseSoap(), containsString(word))
             );
-            LOGGER.info("CUMPLE");
+            LOGGER.info("CUMPLE CON EL NOMBRE ESPERADO");
         } catch (Exception e) {
-            LOGGER.info("Error al realizar la comparacion");
             LOGGER.warn(e.getMessage());
+            LOGGER.info("Error al realizar la comparacion del nombre");
             Assertions.fail();
         }
     }
 
-    private void loadBody(String num1) {
+    private void loadBodyCurrency(String code) {
         body = readFile(BODY_CURRENCY_PATH.getValue());
-        body = String.format(body, num1);
+        body = String.format(body, code);
     }
 }

@@ -7,12 +7,11 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
 
-import static com.sofkau.questions.rest.ReturnListPokemonResponse.returnListPokemonResponse;
+import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoGet.doGet;
 
 import static com.sofkau.utils.UrlResources.BASE_POKE_URL;
@@ -31,7 +30,7 @@ public class ListPokemonStepDefinition extends ApiSetUp {
     @Given("Que estoy en la Poke API")
     public void queEstoyEnLaPokeAPI() {
         setUp(BASE_POKE_URL.getValue());
-        LOGGER.info("Inicio de la automatizacion");
+        LOGGER.info("Inicio de la automatizacion de Poke Api");
     }
 
     @When("Hago una peticion para listar pokes de generacion {string}")
@@ -50,7 +49,7 @@ public class ListPokemonStepDefinition extends ApiSetUp {
     public void deboVerUnCodigoDeEstadoExitoso() {
         try {
             actor.should(
-                    seeThatResponse("El codigo de respuesta es: " + HttpStatus.SC_OK,
+                    seeThatResponse("El codigo de respuesta dado por Poke API es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(200))
 
             );
@@ -63,7 +62,7 @@ public class ListPokemonStepDefinition extends ApiSetUp {
     @Then("La respuesta debe contener un body con toda la info {string} y {string}")
     public void laRespuestaDebeContenerUnBodyConTodaLaInfoY(String id, String main_region_name) {
         try {
-            Response actualResponse = returnListPokemonResponse().answeredBy(actor);
+            Response actualResponse = returnResponse().answeredBy(actor);
             resBody = (JSONObject) parser.parse(actualResponse.getBody().asString());
             JSONObject main_region = (JSONObject) resBody.get("main_region");
             actor.should(

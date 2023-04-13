@@ -28,10 +28,10 @@ public class RestaStepDefinitions extends ApiSetUp {
     public void dadoQueTengoAccesoAlServicioSOAPCalculadora() {
         try {
             setUp(SOAP_CALCULADORA_BASE_URL.getValue());
-            LOGGER.info("Inicio de la Automatizacion");
+            LOGGER.info("Inicio de la Automatizacion de API calculadora");
 
         } catch (Exception e) {
-            LOGGER.info(" fallo la configuracion inicial");
+            LOGGER.info(" fallo la configuracion inicial de la calculadora");
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
@@ -42,7 +42,7 @@ public class RestaStepDefinitions extends ApiSetUp {
         try {
             loadBody(num1,num2);
         }catch (Exception e){
-            LOGGER.info(" fallo la carga del body");
+            LOGGER.info(" fallo la carga del body que contiene los numeros");
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
@@ -58,9 +58,9 @@ public class RestaStepDefinitions extends ApiSetUp {
                             .andTheBody(body)
             );
             LOGGER.info(body);
-            LOGGER.info("Realiza la peticion");
+            LOGGER.info("Realiza la peticion de resta");
         } catch (Exception e) {
-            LOGGER.info(" fallo al momento de realizar la peticion");
+            LOGGER.info(" fallo al momento de realizar la peticion de resta");
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
@@ -71,12 +71,12 @@ public class RestaStepDefinitions extends ApiSetUp {
         try {
             LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
             actor.should(
-                    seeThatResponse("el codigo de respuesta es: " + HttpStatus.SC_OK,
+                    seeThatResponse("el codigo de respuesta de la API calculadora es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(HttpStatus.SC_OK))
             );
             LOGGER.info("CUMPLE");
         } catch (Exception e) {
-            LOGGER.info("Error al realizar la comparacion");
+            LOGGER.info("Error al realizar la comparacion del codigo de estasdo");
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
@@ -91,10 +91,10 @@ public class RestaStepDefinitions extends ApiSetUp {
                     seeThat(" la resta total es",
                                     responseSoap(), containsString(total))
             );
-            LOGGER.info("CUMPLE");
+            LOGGER.info("CUMPLE CON EL RESULTADO ESPERADO");
             LOGGER.info(responseSoap());
         } catch (Exception e) {
-            LOGGER.info("Error al realizar la comparacion");
+            LOGGER.info("Error al realizar la comparacion del resultado esperado");
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }

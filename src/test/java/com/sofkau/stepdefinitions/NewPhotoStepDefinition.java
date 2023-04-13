@@ -27,7 +27,7 @@ public class NewPhotoStepDefinition extends ApiSetUp {
 
     @Given("que tengo un album con id {string}")
     public void queTengoUnAlbumConId(String album_id) {
-        LOGGER.info("Inicio de la Automatizacion");
+        LOGGER.info("Inicio de la Automatizacion de JsonPlaceHolder");
         setUp(JSONPLACEHOLDER_BASE_URL.getValue());
         photo.setAlbumId(album_id);
     }
@@ -48,7 +48,7 @@ public class NewPhotoStepDefinition extends ApiSetUp {
     public void laRespuestaDeLaPeticionDebeTenerElCodigoDeEstado(Integer statusCode) {
         try {
             actor.should(
-                    seeThatResponse("El codigo de respuesta es: " + HttpStatus.SC_OK,
+                    seeThatResponse("El codigo de respuesta de JsonPlaceholder es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(statusCode))
             );
         }catch (Exception e){
