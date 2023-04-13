@@ -5,10 +5,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
-import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
-
 import static com.sofkau.tasks.DoDelete.doDelete;
 import static com.sofkau.utils.UrlResources.PLACE_DELETE_POST;
 import static com.sofkau.utils.UrlResources.PLACE_HOLDER_BASE_URL;
