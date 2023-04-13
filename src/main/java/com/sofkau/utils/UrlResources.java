@@ -2,8 +2,8 @@ package com.sofkau.utils;
 
 public enum UrlResources {
 
-    REQRES_BASE_URL_PUT("https://reqres.in/api/"),
-    RESOURCES_PUT("users/"),
+    REQRES_BASE_URL("https://reqres.in/"),
+    RESOURCES_PUT("api/users/"),
     BASE_POKE_URL("https://pokeapi.co/"),
     RESOURCE_BAYAS("api/v2/berry/"),
     RESOURCE_JUEGO("api/v2/version/"),

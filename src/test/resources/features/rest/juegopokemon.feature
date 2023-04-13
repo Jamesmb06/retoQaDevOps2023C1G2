@@ -13,4 +13,4 @@ Feature: Ver informacion de un juego de pokemon
       | "1"   | 200  |
       | "2"   | 200  |
       | "3"   | 200  |
-      | "200" | 400  |
+      | "200" | 404  |

@@ -6,16 +6,16 @@ import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Actor;
+
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.logging.Logger;
 
+import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.questions.rest.ReturnUpdateJsonResponse.returnUpdateJsonResponse;
 import static com.sofkau.tasks.DoPut.doPut;
-import static com.sofkau.utils.UrlResources.REQRES_BASE_URL_PUT;
-import static com.sofkau.utils.UrlResources.RESOURCES_PUT;
+import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -30,7 +30,7 @@ public class UpdateUserStepDefinition extends ApiSetUp {
 
     @Given("que estoy apuntando con un endpoint a la api de reqresin")
     public void queEstoyApuntandoConUnEndpointALaApiDeReqresIn() {
-        setUp(REQRES_BASE_URL_PUT.getValue());
+        setUp(REQRES_BASE_URL.getValue());
         LOGGER.info("Se inicia la automatizacion");
     }
 
@@ -54,7 +54,6 @@ public class UpdateUserStepDefinition extends ApiSetUp {
     @Then("se recibe un {int} de respuesta")
     public void seRecibeUnDeRespuesta(Integer code) {
         try {
-
             actualResponseUpdateUser=returnUpdateJsonResponse().answeredBy(actor);
             actor.should(
                     seeThatResponse("El codigo de respuesta es "+ HttpStatus.SC_OK,

@@ -9,10 +9,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
-
 import java.util.logging.Logger;
-
-import static com.sofkau.questions.rest.ReturnBayaJsonResponse.returnBayaJsonResponse;
+import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoGet.doGet;
 import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -49,10 +47,9 @@ public class BayaStepDefinition extends ApiSetUp {
 
     @Then("recibo un {int} de respuesta")
     public void reciboUnDeRespuesta(Integer codigo) {
-
         try{
             codigoRespuesta=codigo;
-            actualResponse= returnBayaJsonResponse().answeredBy(actor);
+            actualResponse= returnResponse().answeredBy(actor);
             actor.should(
                     seeThatResponse("El codigo de respuesta es: "+ actualResponse.getStatusCode(),
                             code -> code.statusCode(codigo))
@@ -91,7 +88,7 @@ public class BayaStepDefinition extends ApiSetUp {
           }
       }else if(codigoRespuesta==404){
           try{
-              LOGGER.info("Se revisa la respuesta de los codigos 400");
+              LOGGER.info("Se revisa la respuesta de los codigos 404");
               actor.should(
                       seeThat("Retorna informacion",
                               info-> actualResponse.getBody().asString(),equalTo(informacion))
