@@ -17,34 +17,40 @@ import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeT
 import static org.hamcrest.Matchers.equalTo;
 
 public class CrearLibroStepDef extends ApiSetUp {
-    private final Logger log = LoggerFactory.getLogger(BorrarAlbumStepDef.class);
+    private final Logger log = LoggerFactory.getLogger(CrearLibroStepDef.class);
     private final Book book = new Book();
 
     @Given("Tengo acceso al servidor de la API de Fake REST")
     public void tengoAccesoAlServidorDeLaAPIDeFakeREST() {
         try {
-            log.info("Init scenario");
+            log.info("Iniciando escenario");
             setUp(FAKE_REST_API_BASE_URL.getValue());
         } catch (Exception e) {
-            log.error("Wrong Setup provided");
+            log.error("Setup erroneo");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
+            Assertions.fail();
         }
     }
 
     @When("Trato de crear un libro con ID {int}, titulo {string} y numero de paginas {int}")
     public void tratoDeCrearUnLibroConIDTituloYNumeroDePaginas(Integer id, String title, Integer pageCount) {
         try {
-            log.info("Running selection");
+            log.info("Corriendo seleccion");
             book.setId(id);
             book.setTitle(title);
             book.setPageCount(pageCount);
             log.info(book.toString());
             actor.attemptsTo(
                     doPut()
-                            .toTheResource(String.format(BOOKS_RESOURCE.getValue(), id))
+                            .withTheResource(String.format(BOOKS_RESOURCE.getValue(), id))
                             .andTheRequestBody(book)
             );
         } catch (Exception e) {
-            log.error("Wrong Setup provided");
+            log.error("ERROR");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
+            Assertions.fail();
         }
     }
 
@@ -52,12 +58,14 @@ public class CrearLibroStepDef extends ApiSetUp {
     public void vereUnCodigoDeRespuesta(Integer code) {
         try {
             actor.should(
-                    seeThatResponse("Status code of book created should be shown",
+                    seeThatResponse("Codigo de estado de libro creado se debe mostrar",
                             response -> response.statusCode(code))
             );
-            log.info("First assert passed");
+            log.info("Primera asercion pasada");
         } catch (Exception e) {
-            log.error("Test failed");
+            log.error("Test fallido");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
             Assertions.fail();
         }
     }
@@ -66,7 +74,7 @@ public class CrearLibroStepDef extends ApiSetUp {
     public void recibireLaInformacionDelLibroDeVuelta() {
         try {
             actor.should(
-                    seeThatResponse("Book created should be shown",
+                    seeThatResponse("Se debe mostrar el libro creado",
                             response -> response
                                     .body("id", equalTo(book.getId()))
                                     .body("title", equalTo(book.getTitle()))
@@ -75,12 +83,14 @@ public class CrearLibroStepDef extends ApiSetUp {
                                     .body("excerpt", equalTo(book.getExcerpt()))
                     )
             );
-            log.info("Second assert passed");
+            log.info("Segunda asercion pasada");
         } catch (Exception e) {
-            log.error("Test failed");
+            log.error("Test fallido");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
             Assertions.fail();
         } finally {
-            log.error("Test completed");
+            log.info("Test completado");
         }
     }
 }

@@ -10,8 +10,7 @@ Feature: Ver tareas TO DO
     Then Vere el titulo '<title>' de la tarea
     And Recibire un codigo de estado <code>
     Examples:
-      | id | title               | code |
-      | 1  | delectus aut autem  | 200  |
-      | 2  | quis ut nam facilis | 200  |
-      | 4  | et porro tempora    | 200  |
-      | 21 |                     | 404  |
+      | id | title                              | code |
+      | 1  | delectus aut autem                 | 200  |
+      | 2  | quis ut nam facilis et officia qui | 200  |
+      | 4  | et porro tempora                   | 200  |

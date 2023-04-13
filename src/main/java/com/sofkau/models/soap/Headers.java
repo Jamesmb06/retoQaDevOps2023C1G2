@@ -12,6 +12,11 @@ public class Headers {
         return headersCollection;
     }
 
+    public Map<String, Object> getHeaders(String headers) {
+        this.headersCollection.put("Content-Type", headers);
+        return headersCollection;
+    }
+
     public static Headers headers(){
         return new Headers();
     }

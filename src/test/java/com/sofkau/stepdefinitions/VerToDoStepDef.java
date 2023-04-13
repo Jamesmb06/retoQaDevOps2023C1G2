@@ -13,30 +13,36 @@ import static com.sofkau.tasks.DoGet.doGet;
 import static com.sofkau.utils.UrlResources.JSON_PLACEHOLDER_BASE_URL;
 import static com.sofkau.utils.UrlResources.TO_DO_RESOURCE;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
-import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.*;
 
 public class VerToDoStepDef extends ApiSetUp {
-    private final Logger log = LoggerFactory.getLogger(BorrarAlbumStepDef.class);
+    private final Logger log = LoggerFactory.getLogger(VerToDoStepDef.class);
 
     @Given("Tengo acceso al servidor de la API de JSONPlaceholder")
     public void tengoAccesoAlServidorDeLaAPIDeJSONPlaceholder() {
         try {
-            log.info("Init scenario");
+            log.info("Iniciando escenario");
             setUp(JSON_PLACEHOLDER_BASE_URL.getValue());
         } catch (Exception e) {
-            log.error("Wrong Setup provided");
+            log.error("Setup erroneo");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
+            Assertions.fail();
         }
     }
 
     @When("Reviso mis tareas TO DO con ID {int}")
     public void revisoMisTareasTODOConID(Integer id) {
         try {
-            log.info("Running selection");
+            log.info("Corriendo seleccion");
             actor.attemptsTo(
-                    doGet().theResource(String.format(TO_DO_RESOURCE.getValue(), id))
+                    doGet().withTheResource(String.format(TO_DO_RESOURCE.getValue(), id))
             );
         } catch (Exception e) {
-            log.error("Wrong Setup provided");
+            log.error("ERROR");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
+            Assertions.fail();
         }
     }
 
@@ -44,12 +50,14 @@ public class VerToDoStepDef extends ApiSetUp {
     public void vereElTituloDeLaTarea(String title) {
         try {
             actor.should(
-                    seeThatResponse("Title of the to-do should be shown",
+                    seeThatResponse("Debe mostrarse el titulo de la tarea",
                             response -> response.body("title", hasItem(title)))
             );
-            log.info("First assert passed");
+            log.info("Primera asercion pasada");
         } catch (Exception e) {
-            log.error("Test failed");
+            log.error("Test fallido");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
             Assertions.fail();
         }
     }
@@ -58,15 +66,17 @@ public class VerToDoStepDef extends ApiSetUp {
     public void recibireUnCodigoDeEstado(Integer code) {
         try {
             actor.should(
-                    seeThatResponse("Status code of To do consulted should be shown",
+                    seeThatResponse("Debe mostrarse el codigo de estado de consulta de la tarea",
                             response -> response.statusCode(code))
             );
-            log.info("Second assert passed");
+            log.info("Segunda asercion pasada");
         } catch (Exception e) {
-            log.error("Test failed");
+            log.error("Test fallido");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
             Assertions.fail();
         } finally {
-            log.error("Test completed");
+            log.info("Test completado");
         }
     }
 }

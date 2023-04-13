@@ -19,22 +19,28 @@ public class BorrarAlbumStepDef extends ApiSetUp {
     @Given("Tengo acceso al servidor de la API JSONPlaceholder")
     public void tengoAccesoAlServidorDeLaAPIJSONPlaceholder() {
         try {
-            log.info("Init scenario");
+            log.info("Iniciando escenario");
             setUp(JSON_PLACEHOLDER_BASE_URL.getValue());
         } catch (Exception e) {
-            log.error("Wrong Setup provided");
+            log.error("Setup erroneo");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
+            Assertions.fail();
         }
     }
 
     @When("Trato de borrar un album con ID {int}")
     public void tratoDeBorrarUnAlbumConID(Integer id) {
         try {
-            log.info("Running selection");
+            log.info("Corriendo seleccion");
             actor.attemptsTo(
-                    doDelete().theResource(String.format(ALBUMS_RESOURCE.getValue(), id))
+                    doDelete().conElRecurso(String.format(ALBUMS_RESOURCE.getValue(), id)).yConelId("")
             );
         } catch (Exception e) {
-            log.error("Wrong Setup provided");
+            log.error("ERROR");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
+            Assertions.fail();
         }
     }
 
@@ -42,15 +48,17 @@ public class BorrarAlbumStepDef extends ApiSetUp {
     public void vereElCodigoDeRespuesta(Integer code) {
         try {
             actor.should(
-                    seeThatResponse("Status code cause deleted Album should be shown",
+                    seeThatResponse("Codigo de estado por borrar album debe ser mostrado",
                             response -> response.statusCode(code))
             );
-            log.info("Test passed");
+            log.info("Test pasado");
         } catch (Exception e) {
-            log.error("Test failed");
+            log.error("Test fallido");
+            log.error(e.getMessage());
+            log.error(String.valueOf(e.getCause()));
             Assertions.fail();
         } finally {
-            log.error("Test completed");
+            log.info("Test completado");
         }
     }
 }

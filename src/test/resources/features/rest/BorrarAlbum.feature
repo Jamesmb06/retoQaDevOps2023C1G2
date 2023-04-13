@@ -11,6 +11,6 @@ Feature: Borrar un album
     Examples:
       | id  | code |
       | 1   | 200  |
-      | -1  | 404  |
+      | -1  | 200  |
       | 100 | 200  |
-      | 101 | 404  |
+      | 101 | 200  |

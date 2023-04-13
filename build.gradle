@@ -45,6 +45,8 @@ dependencies {
     implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.4'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
     implementation 'com.github.javafaker:javafaker:1.0.2'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
 }
 
 test {
