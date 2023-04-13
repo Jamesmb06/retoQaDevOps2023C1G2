@@ -2,11 +2,11 @@ package com.sofkau.utils;
 
 public enum UrlResources {
 
-    REQRES_BASE_URL_PUT("https://reqres.in/api/"),
-    RESOURCES_PUT("users/"),
-    SOAP_CAPITAL_BASE_URL("http://webservices.oorsprong.org/"),
-    RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
-    BODY_PATH("src/test/resources/soapXml/filecapital.xml");
+    JSON_PLACEHOLDER_BASE_URL("https://jsonplaceholder.typicode.com"),
+    ALBUMS_RESOURCE("/albums/%d"),
+    TO_DO_RESOURCE("/users/1/todos?id=%d"),
+    FAKE_REST_API_BASE_URL("https://fakerestapi.azurewebsites.net"),
+    BOOKS_RESOURCE("/api/v1/Books/%d");
 
     private final String value;
 
