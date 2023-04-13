@@ -1,5 +1,7 @@
 package com.sofkau.models.rest;
 
+import io.restassured.response.Response;
+
 public class ResponseUpdateUser {
 
     private String nombre;
@@ -38,4 +40,5 @@ public class ResponseUpdateUser {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
+
 }

@@ -1,5 +1,7 @@
 package com.sofkau.stepdefinitions;
 
+import com.sofkau.models.rest.ResponseUpdateUser;
+import com.sofkau.models.rest.User;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,15 +22,17 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class CapitalStepDefinitions extends ApiSetUp {
+public class ZipCode_CoordenadasUsStepDefinition extends ApiSetUp {
 
+    private User user= new User();
     String body;
-    private static final Logger LOGGER = Logger.getLogger(CapitalStepDefinitions.class);
+    private static final Logger LOGGER = Logger.getLogger(ZipCode_CoordenadasUsStepDefinition.class);
+    ResponseUpdateUser actualResponseUpdateUser=new ResponseUpdateUser();
 
-    @Given("a user that wants to know the actual capital")
-    public void aUserThatWantsToKnowTheActualCapital() {
+    @Given("un usuario quiere saber las coordenadas de un codigo postal")
+    public void unUsuarioQuiereSaberLasCoordenadasDeUnCodigoPostal() {
         try {
-            setUp(SOAP_CAPITAL_BASE_URL.getValue());
+            setUp(SOAP_ZIPCODE_BASE_URL.getValue());
             LOGGER.info("INICIA LA AUTOMATIZACION");
             loadBody();
         } catch (Exception e) {
@@ -36,17 +40,15 @@ public class CapitalStepDefinitions extends ApiSetUp {
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
 
-
-    @When("the user sends the request to the api")
-    public void theUserSendsTheRequestToTheApi() {
+    @When("realizo una peticion POST con el codigo postal {string}")
+    public void realizoUnaPeticionPOSTConElCodigoPostal(String string) {
         try {
             actor.attemptsTo(
                     doPostSoap()
-                            .andTheResource(RESOURCE_CAPITAL.getValue())
-                            .withTheHeaders(headers().getHeadersCollection())
+                            .andTheResource(RESOURCE_ZIPCODE.getValue())
+                            .withTheHeaders(headers().getHeadersZipCode())
                             .andTheBody(body)
             );
             LOGGER.info("Realiza la peticion");
@@ -55,30 +57,41 @@ public class CapitalStepDefinitions extends ApiSetUp {
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
 
-    @Then("the user gets the capital")
-    public void theUserGetsTheCapital() {
+    @Then("el servicio responde con un estado HTTP {int} OK")
+    public void elServicioRespondeConUnEstadoHTTPOK(Integer int1) {
         try {
             LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
             actor.should(
                     seeThatResponse("el codigo de respuesta es: " + HttpStatus.SC_OK,
-                            response -> response.statusCode(HttpStatus.SC_OK)),
-                    seeThat(" la capital es",
-                            responseSoap(), containsString("Bogota"))
+                            response -> response.statusCode(HttpStatus.SC_OK))
             );
-            LOGGER.info("CUMPLE");
+            LOGGER.info("CUMPLE EL CODIGO DE ESTADO");
         } catch (Exception e) {
             LOGGER.info("Error al realizar la comparacion");
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
 
+    @Then("en el cuerpo de la respuesta obtengo las coordenadas correspondientes al codigo postal {string}")
+    public void enElCuerpoDeLaRespuestaObtengoLasCoordenadasCorrespondientesAlCodigoPostal(String string) {
+        try {
+            LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
+            actor.should(
+                    seeThat(" las coordenadas son: ",
+                            responseSoap(), containsString("33.5969,-86.4946"))
+            );
+            LOGGER.info("COINCIDEN LAS COORDENADAS!!");
+        } catch (Exception e) {
+            LOGGER.info("Error al realizar la comparacion");
+            LOGGER.warn(e.getMessage());
+            Assertions.fail();
+        }
+    }
     private void loadBody() {
-        body = readFile(BODY_PATH.getValue());
-        body = String.format(body, "CO");
+        body = readFile(BODY_ZIP_PATH.getValue());
+        body = String.format(body, "35004");
     }
 }
