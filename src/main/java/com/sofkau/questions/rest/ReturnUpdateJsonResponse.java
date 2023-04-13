@@ -1,5 +1,6 @@
-package com.sofkau.questions;
+package com.sofkau.questions.rest;
 
+import com.sofkau.models.rest.ResponseUpdateUser;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;

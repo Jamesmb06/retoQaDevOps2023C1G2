@@ -20,4 +20,3 @@ history/
 !**/src/main/**/out/
 !**/src/test/**/out/
 target
-valores.properties
