@@ -4,7 +4,7 @@ Feature: Actualizar informacion de los usuarios
   para modificar los atributos de los usuario
 
   Scenario Outline: Actualizar informacion de un usuario
-    Given que estoy apuntando con un endpoint a la api de reqres.in
+    Given que estoy apuntando con un endpoint a la api de reqresin
     When envio la peticion put con el <id> de el usuario el <nombre>,<edad> y <trabajo>
     Then se recibe un <codigo> de respuesta
     And la informacion actualizada del usuario con la fecha de actualizacion

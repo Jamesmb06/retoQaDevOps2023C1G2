@@ -4,9 +4,11 @@ public enum UrlResources {
 
     REQRES_BASE_URL_PUT("https://reqres.in/api/"),
     RESOURCES_PUT("users/"),
-    SOAP_CAPITAL_BASE_URL("http://webservices.oorsprong.org/"),
-    RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
-    BODY_PATH("src/test/resources/soapXml/filecapital.xml");
+    BASE_POKE_URL("https://pokeapi.co/"),
+    RESOURCE_BAYAS("api/v2/berry/"),
+    SOAP_CALCULADORA_BASE_URL("http://www.dneonline.com/"),
+    RESOURCE_CALCULADORA_MULTIPLICAR("calculator.asmx"),
+    BODY_MULTIPLICAR("src/test/resources/soapXml/filemultiplicar.xml");
 
     private final String value;
 

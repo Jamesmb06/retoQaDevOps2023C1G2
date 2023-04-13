@@ -23,12 +23,12 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class UpdateUserStepDefinition extends ApiSetUp {
 
-    public static Actor actor=new Actor("Estiven");
+
     private User user= new User();
     public static Logger LOGGER = Logger.getLogger(String.valueOf(UpdateUserStepDefinition.class));
     ResponseUpdateUser actualResponseUpdateUser=new ResponseUpdateUser();
 
-    @Given("que estoy apuntando con un endpoint a la api de reqres.in")
+    @Given("que estoy apuntando con un endpoint a la api de reqresin")
     public void queEstoyApuntandoConUnEndpointALaApiDeReqresIn() {
         setUp(REQRES_BASE_URL_PUT.getValue());
         LOGGER.info("Se inicia la automatizacion");
