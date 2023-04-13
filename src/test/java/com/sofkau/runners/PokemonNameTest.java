@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/soap/buscarcapital.feature"},
-        glue = {"com.sofkau.stepdefinitions"},
-        tags = {}
+        features = {"src/test/resources/features/rest/pokemonsname.feature"},
+        glue = {"com.sofkau.stepdefinitions"}
 )
-public class CapitalTest {
+
+public class PokemonNameTest {
 }
