@@ -22,9 +22,9 @@ public class BorrarAlbumStepDef extends ApiSetUp {
             log.info("Iniciando escenario");
             setUp(JSON_PLACEHOLDER_BASE_URL.getValue());
         } catch (Exception e) {
-            log.error("Setup erroneo");
             log.error(e.getMessage());
             log.error(String.valueOf(e.getCause()));
+            log.error("Setup erroneo");
             Assertions.fail();
         }
     }
@@ -37,9 +37,9 @@ public class BorrarAlbumStepDef extends ApiSetUp {
                     doDelete().conElRecurso(String.format(ALBUMS_RESOURCE.getValue(), id)).yConelId("")
             );
         } catch (Exception e) {
-            log.error("ERROR");
             log.error(e.getMessage());
             log.error(String.valueOf(e.getCause()));
+            log.error("ERROR");
             Assertions.fail();
         }
     }
@@ -53,9 +53,9 @@ public class BorrarAlbumStepDef extends ApiSetUp {
             );
             log.info("Test pasado");
         } catch (Exception e) {
-            log.error("Test fallido");
             log.error(e.getMessage());
             log.error(String.valueOf(e.getCause()));
+            log.error("Test fallido");
             Assertions.fail();
         } finally {
             log.info("Test completado");
