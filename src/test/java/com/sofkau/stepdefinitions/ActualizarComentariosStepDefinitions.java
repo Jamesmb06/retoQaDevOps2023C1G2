@@ -6,8 +6,6 @@ import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.rest.SerenityRest;
-import net.serenitybdd.screenplay.Actor;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
 
@@ -27,7 +25,7 @@ public class ActualizarComentariosStepDefinitions extends ApiSetUp {
     public void queElUsuarioEstaEnLaPaginaDeJsonPlaceholder() {
         try{
             setUp(JSONPLACEHOLDER_BASE_URL_PUT.getValue());
-            LOGGER.info("Se inicia la automatizacion");
+            LOGGER.info("Inicia el proceso de automatizacion");
         }catch (AssertionError error){
             LOGGER.warning(error.getMessage());
             Assertions.fail("Respuesta de la petición - inválida");

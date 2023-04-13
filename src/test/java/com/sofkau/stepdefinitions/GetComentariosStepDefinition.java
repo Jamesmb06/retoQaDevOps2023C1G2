@@ -1,7 +1,6 @@
 package com.sofkau.stepdefinitions;
 
 import com.sofkau.models.rest.ResponseUpdateUser;
-import com.sofkau.models.rest.User;
 import com.sofkau.setup.ApiSetUp;
 import com.sofkau.tasks.DoGet;
 import com.sofkau.utils.UrlResources;
@@ -19,13 +18,9 @@ import java.util.logging.Logger;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-
 public class GetComentariosStepDefinition extends ApiSetUp {
     private Response response;
-    private User user= new User();
     private Actor actor;
-    public static java.util.logging.Logger LOGGER = Logger.getLogger(String.valueOf(GetComentariosStepDefinition.class));
-    ResponseUpdateUser actualResponseUpdateUser=new ResponseUpdateUser();
 
     @Given("que el usuario tiene acceso a los servicios API REST")
     public void queElUsuarioTieneAccesoALosServiciosAPIREST() {

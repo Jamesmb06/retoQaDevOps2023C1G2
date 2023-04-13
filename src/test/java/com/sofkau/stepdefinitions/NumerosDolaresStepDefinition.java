@@ -1,7 +1,6 @@
 package com.sofkau.stepdefinitions;
 
 import com.sofkau.models.rest.ResponseUpdateUser;
-import com.sofkau.models.rest.User;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,16 +20,14 @@ import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeT
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class NumerosDolaresStepDefinition extends ApiSetUp {
-    private User user= new User();
     String body;
     private static final Logger LOGGER = Logger.getLogger(ZipCode_CoordenadasUsStepDefinition.class);
-    ResponseUpdateUser actualResponseUpdateUser=new ResponseUpdateUser();
 
     @Given("que el usuario quiere obtener el resultado de la conversion de numeros a dolares")
     public void queElUsuarioQuiereObtenerElResultadoDeLaConversionDeNumerosADolares() {
         try {
             setUp(SOAP_NUMEROS_DOLARES_BASE_URL.getValue());
-            LOGGER.info("INICIA LA AUTOMATIZACION");
+            LOGGER.info("Inicia el proceso de automatizacion");
             loadBody();
         } catch (Exception e) {
             LOGGER.info(" fallo la configuracion inicial");

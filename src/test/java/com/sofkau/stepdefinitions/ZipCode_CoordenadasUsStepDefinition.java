@@ -1,7 +1,5 @@
 package com.sofkau.stepdefinitions;
 
-import com.sofkau.models.rest.ResponseUpdateUser;
-import com.sofkau.models.rest.User;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,16 +22,14 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 public class ZipCode_CoordenadasUsStepDefinition extends ApiSetUp {
 
-    private User user= new User();
     String body;
     private static final Logger LOGGER = Logger.getLogger(ZipCode_CoordenadasUsStepDefinition.class);
-    ResponseUpdateUser actualResponseUpdateUser=new ResponseUpdateUser();
 
     @Given("un usuario quiere saber las coordenadas de un codigo postal")
     public void unUsuarioQuiereSaberLasCoordenadasDeUnCodigoPostal() {
         try {
             setUp(SOAP_ZIPCODE_BASE_URL.getValue());
-            LOGGER.info("INICIA LA AUTOMATIZACION");
+            LOGGER.info("Inicia el proceso de automatizacion");
             loadBody();
         } catch (Exception e) {
             LOGGER.info(" fallo la configuracion inicial");
