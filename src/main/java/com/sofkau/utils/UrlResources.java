@@ -8,7 +8,10 @@ public enum UrlResources {
     RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
     RICK_AND_MORTY_BASE_URL("https://rickandmortyapi.com/"),
     RICK_AND_MORTY_SELECCION_ID("api/character/"),
-    BODY_PATH("src/test/resources/soapXml/filecapital.xml");
+    BODY_PATH("src/test/resources/soapXml/filecapital.xml"),
+    ANIME_JINKAN_BASE_URL("https://api.jikan.moe/v4"),
+    ANIME_JINKAN_RESOURCE("/anime/"),
+    BODY_PATH_ISO_NUMERO_CELULAR  ("src/test/resources/soapXml/filecodigoISOnumerocelular.xml");
 
     private final String value;
 
