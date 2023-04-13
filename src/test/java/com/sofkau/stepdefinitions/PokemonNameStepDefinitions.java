@@ -12,7 +12,7 @@ import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import static com.sofkau.tasks.DoGet.doGet;
 import static com.sofkau.utils.UrlResources.POKEMON;
-import static com.sofkau.utils.UrlResources.POKE_API_URL;
+import static com.sofkau.utils.UrlResources.BASE_POKE_URL;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.Matchers.notNullValue;
@@ -25,14 +25,15 @@ public class PokemonNameStepDefinitions extends ApiSetUp {
     @Given("el usuario esta en la PokeApi")
     public void elUsuarioEstaEnLaPokeApi() {
 
-        setUp(POKE_API_URL.getValue());
+        setUp(BASE_POKE_URL.getValue());
     }
 
     @When("el usuario hace la peticion con {string}")
-    public void elUsuarioHaceLaPeticionCon(String arg1) {
+    public void elUsuarioHaceLaPeticionCon(String pokemon) {
         try {
             actor.attemptsTo(
                     doGet().withTheResource(POKEMON.getValue())
+                    .withThePokemon(pokemon)
 
             );
         } catch (Exception e) {
@@ -41,18 +42,18 @@ public class PokemonNameStepDefinitions extends ApiSetUp {
     }
 
     @Then("se valida que el {int} de respuesta sea correcto y que el {string} y el {int} sean correcto")
-    public void seValidaQueElDeRespuestaSeaCorrectoYQueElYElSeanCorrecto(Integer int1, String arg1, Integer int2) {
+    public void seValidaQueElDeRespuestaSeaCorrectoYQueElYElSeanCorrecto(Integer codigo, String pokemon, Integer id) {
         try {
             Gson gson = new Gson();
             JsonObject element = gson.fromJson(SerenityRest.lastResponse().getBody().asString(), JsonObject.class);
             actor.should(
                     seeThatResponse("El codigo de respuesta es: " + HttpStatus.SC_OK,
-                            response -> response.statusCode(int1)),
+                            response -> response.statusCode(codigo)),
                     seeThat("Retorna información",
                             act -> SerenityRest.lastResponse(), notNullValue())
             );
             actor.attemptsTo(
-                    Ensure.that(element.get("id").getAsString()).isEqualTo(int2 + "")
+                    Ensure.that(element.get("id").getAsString()).isEqualTo(id + "")
             );
             String pokemonId = element.get("id").getAsString();
             String pokemonCode = SerenityRest.lastResponse().getStatusCode() + "";
