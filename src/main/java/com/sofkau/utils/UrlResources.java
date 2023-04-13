@@ -11,7 +11,8 @@ public enum UrlResources {
     BODY_PATH("src/test/resources/soapXml/filecapital.xml"),
     ANIME_JINKAN_BASE_URL("https://api.jikan.moe/v4"),
     ANIME_JINKAN_RESOURCE("/anime/"),
-    BODY_PATH_ISO_NUMERO_CELULAR  ("src/test/resources/soapXml/filecodigoISOnumerocelular.xml");
+    BODY_PATH_ISO_NUMERO_CELULAR  ("src/test/resources/soapXml/filecodigoISOnumerocelular.xml"),
+    BODY_PATH_ISO_BANDERA("src/test/resources/soapXml/filecodigoISObandera.xml");
 
     private final String value;
 
