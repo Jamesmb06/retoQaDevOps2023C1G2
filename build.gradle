@@ -23,12 +23,26 @@ buildscript {
     }
 }
 
+
+sonarqube {
+    properties {
+        property 'sonar.host.url', 'http://localhost:9000' // URL del servidor de SonarQube
+        property 'sonar.login', 'sqp_cb541811b3b7040173cf805d8b7e7b51fbf8b0e6' // Token de acceso de SonarQube
+        property 'sonar.projectKey', 'PruebaRetoDevopsPersonal'// Clave del proyecto en SonarQube
+        property 'sonar.projectName','PruebaRetoDevopsPersonal' // Nombre del proyecto en SonarQube
+    }
+}
+
 ext {
     junitVersion = '5.7.2'
     serenityVersion = '2.2.9'
     serenityCucumberVersion = '2.2.6'
     apachePoiVersion = '3.17'
 }
+
+
+
+
 
 dependencies {
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
