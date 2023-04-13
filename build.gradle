@@ -23,6 +23,15 @@ buildscript {
     }
 }
 
+sonarqube {
+    properties {
+        property 'sonar.host.url', 'http://localhost:9000' // URL del servidor de SonarQube
+        property 'sonar.login', 'sqp_4d1b52540bc8976b67cb1d6ea0751ad25ebb56ef' // Token de acceso de SonarQube
+        property 'sonar.projectKey', 'RetoDevOps' // Clave del proyecto en SonarQube
+        property 'sonar.projectName', 'RetoDevOps' // Nombre del proyecto en SonarQube
+    }
+}
+
 ext {
     junitVersion = '5.7.2'
     serenityVersion = '2.2.9'
