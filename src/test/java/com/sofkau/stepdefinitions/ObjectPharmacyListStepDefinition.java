@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import java.nio.charset.StandardCharsets;
 
 import static com.sofkau.models.soap.Headers.headers;
-import static com.sofkau.questions.soap.ResponseSoap.responseSoap;
+import static com.sofkau.questions.rest.ResponseSoap.responseSoap;
 import static com.sofkau.tasks.DoPostSoap.doPostSoap;
 import static com.sofkau.utils.ManageFile.readFile;
 import static com.sofkau.utils.UrlResources.*;
@@ -20,15 +20,14 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class CapitalStepDefinitions extends ApiSetUp {
-
+public class ObjectPharmacyListStepDefinition extends ApiSetUp {
     String body;
-    private static final Logger LOGGER = Logger.getLogger(CapitalStepDefinitions.class);
+    private static final Logger LOGGER = Logger.getLogger(ObjectPharmacyListStepDefinition.class);
 
-    @Given("a user that wants to know the actual capital")
-    public void aUserThatWantsToKnowTheActualCapital() {
+    @Given("a user that wants see object of pharmacy")
+    public void a_user_that_wants_see_object_of_pharmacy() {
         try {
-            setUp(SOAP_CAPITAL_BASE_URL.getValue());
+            setUp(SOAP_CONTRIES.getValue());
             LOGGER.info("INICIA LA AUTOMATIZACION");
             loadBody();
         } catch (Exception e) {
@@ -36,16 +35,13 @@ public class CapitalStepDefinitions extends ApiSetUp {
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
-
-
-    @When("the user sends the request to the api")
-    public void theUserSendsTheRequestToTheApi() {
+    @When("the user sends requests")
+    public void the_user_sends_requests() {
         try {
             actor.attemptsTo(
                     doPostSoap()
-                            .andTheResource(RESOURCE_CAPITAL.getValue())
+                            .andTheResource(RESOURCES_CONTRIES.getValue())
                             .withTheHeaders(headers().getHeadersCollection())
                             .andTheBody(body)
             );
@@ -58,15 +54,16 @@ public class CapitalStepDefinitions extends ApiSetUp {
 
     }
 
-    @Then("the user gets the capital")
-    public void theUserGetsTheCapital() {
+    @Then("the user gets a object pharmacy list")
+    public void the_user_gets_a_object_pharmacy_list() {
         try {
             LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
             actor.should(
                     seeThatResponse("el codigo de respuesta es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(HttpStatus.SC_OK)),
-                    seeThat(" la capital es",
-                            responseSoap(), containsString("Bogota"))
+                    seeThat("El objeto es :",
+                            responseSoap(),
+                            containsString("100000073492|Automatic injection device"))
             );
             LOGGER.info("CUMPLE");
         } catch (Exception e) {
@@ -74,11 +71,10 @@ public class CapitalStepDefinitions extends ApiSetUp {
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
-
     private void loadBody() {
-        body = readFile(BODY_PATH.getValue());
-        body = String.format(body, "CO");
+        body = readFile(BODY_OBJECTPHARMACY_PATH.getValue());
+        body = String.format(body);
     }
+
 }
