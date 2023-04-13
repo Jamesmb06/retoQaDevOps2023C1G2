@@ -36,7 +36,6 @@ public class CrearPostStepDefinition extends ApiSetUp {
     @Given("el usuario esta en la pagina para crear post")
     public void elUsuarioEstaEnLaPaginaParaCrearPost() {
 
-
         try {
             setUp(BASE_JSON_URL.getValue());
             LOGGER.info("API disponibles para realizar la peticion");
@@ -50,7 +49,6 @@ public class CrearPostStepDefinition extends ApiSetUp {
 
     @When("cuando el usuario envia solicitud con userId {string} titulo {string} y post  {string}")
     public void cuandoElUsuarioEnviaSolicitudConUserIdTituloYPost(String userId, String title, String body) {
-
 
         try {
             posts.setUserId(userId);
