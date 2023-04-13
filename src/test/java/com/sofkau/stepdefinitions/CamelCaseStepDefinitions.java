@@ -20,32 +20,29 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class CapitalStepDefinitions extends ApiSetUp {
-
+public class CamelCaseStepDefinitions extends ApiSetUp {
     String body;
-    private static final Logger LOGGER = Logger.getLogger(CapitalStepDefinitions.class);
+    private static final Logger LOGGER = Logger.getLogger(CamelCaseStepDefinitions.class);
 
-    @Given("a user that wants to know the actual capital")
-    public void aUserThatWantsToKnowTheActualCapital() {
+    @Given("a user have a {string} that need format")
+    public void aUserHaveAThatNeedFormat(String firstText) {
         try {
-            setUp(SOAP_CAPITAL_BASE_URL.getValue());
+            setUp(SOAP_CAMEL_CASE_BASE_URL.getValue());
             LOGGER.info("INICIA LA AUTOMATIZACION");
-            loadBody();
+            loadBody(firstText);
         } catch (Exception e) {
             LOGGER.info(" fallo la configuracion inicial");
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
 
-
-    @When("the user sends the request to the api")
-    public void theUserSendsTheRequestToTheApi() {
+    @When("the user sends the text to the api")
+    public void theUserSendsTheTextToTheApi() {
         try {
             actor.attemptsTo(
                     doPostSoap()
-                            .andTheResource(RESOURCE_CAPITAL.getValue())
+                            .andTheResource(RESOURCE_CAMEL_CASE.getValue())
                             .withTheHeaders(headers().getHeadersCollection())
                             .andTheBody(body)
             );
@@ -55,18 +52,16 @@ public class CapitalStepDefinitions extends ApiSetUp {
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
-
-    @Then("the user gets the capital")
-    public void theUserGetsTheCapital() {
+    @Then("the user gets the text with correct format {string}")
+    public void theUserGetsTheTextWithCorrectFormat(String expextedText) {
         try {
             LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
             actor.should(
                     seeThatResponse("el codigo de respuesta es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(HttpStatus.SC_OK)),
-                    seeThat(" la capital es",
-                            responseSoap(), containsString("Bogota"))
+                    seeThat("El texto es",
+                            responseSoap(), containsString(expextedText))
             );
             LOGGER.info("CUMPLE");
         } catch (Exception e) {
@@ -74,11 +69,10 @@ public class CapitalStepDefinitions extends ApiSetUp {
             LOGGER.warn(e.getMessage());
             Assertions.fail();
         }
-
     }
 
-    private void loadBody() {
-        body = readFile(BODY_PATH.getValue());
-        body = String.format(body, "CO");
+    private void loadBody(String value) {
+        body = readFile(BODY_CAMEL_CASE_PATH.getValue());
+        body = String.format(body, value);
     }
 }
