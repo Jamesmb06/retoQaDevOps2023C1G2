@@ -76,21 +76,28 @@ public class ObtenerAnimePorIDJinkanStepDefinition extends ApiSetUp {
 
 
     private void assersionesStatus200(Integer statusCode, String url, Integer idAnime) {
-        actor.should(
-                seeThatResponse("El codigo de respuesta deberia ser: " + statusCode,
-                        response -> response.statusCode(statusCode))
-        );
 
-        actor.should(
-                seeThatResponse("Comprobar IdAnime: ",
-                        response -> response.body("data.mal_id",equalTo(idAnime)))
-        );
 
-        actor.should(
-                seeThatResponse("Comprobar url Anime: ",
-                        response -> response.body("data.url",equalTo(url)))
-        );
+        try {
+            actor.should(
+                    seeThatResponse("El codigo de respuesta deberia ser: " + statusCode,
+                            response -> response.statusCode(statusCode))
+            );
+
+            actor.should(
+                    seeThatResponse("Comprobar IdAnime: ",
+                            response -> response.body("data.mal_id", equalTo(idAnime)))
+            );
+
+            actor.should(
+                    seeThatResponse("Comprobar url Anime: ",
+                            response -> response.body("data.url", equalTo(url)))
+            );
+        }catch (Exception e) {
+            LOGGER.info("Error al realizar la comparacion");
+            LOGGER.warn(e.getMessage());
+            Assertions.fail();
+        }
+
     }
-
-
 }
