@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import java.nio.charset.StandardCharsets;
 
 import static com.sofkau.models.soap.Headers.headers;
-import static com.sofkau.questions.rest.ResponseSoap.responseSoap;
+import static com.sofkau.questions.soap.ResponseSoap.responseSoap;
 import static com.sofkau.tasks.DoPostSoap.doPostSoap;
 import static com.sofkau.utils.ManageFile.readFile;
 import static com.sofkau.utils.UrlResources.*;
@@ -61,7 +61,7 @@ public class ContriesListStepDefinition extends ApiSetUp {
         try {
             LOGGER.info(new String(LastResponse.received().answeredBy(actor).asByteArray(), StandardCharsets.UTF_8));
             actor.should(
-                    (Consequence) seeThatResponse("el codigo de respuesta es: " + HttpStatus.SC_OK,
+                  seeThatResponse("el codigo de respuesta es: " + HttpStatus.SC_OK,
                             response -> response.statusCode(HttpStatus.SC_OK)),
                     seeThat("El pais es:",
                             responseSoap(),

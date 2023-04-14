@@ -1,7 +1,5 @@
 package com.sofkau.stepdefinitions;
-
 import com.sofkau.setup.ApiSetUp;
-import com.sofkau.utils.Log4jValues;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,11 +7,9 @@ import net.serenitybdd.screenplay.rest.questions.LastResponse;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
-
 import java.nio.charset.StandardCharsets;
-
 import static com.sofkau.models.soap.Headers.headers;
-import static com.sofkau.questions.rest.ResponseSoap.responseSoap;
+import static com.sofkau.questions.soap.ResponseSoap.responseSoap;
 import static com.sofkau.tasks.DoPostSoap.doPostSoap;
 import static com.sofkau.utils.ManageFile.readFile;
 import static com.sofkau.utils.UrlResources.*;
