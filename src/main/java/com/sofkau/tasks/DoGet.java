@@ -12,20 +12,14 @@ public class DoGet implements Task {
 
     private String resource;
 
-    private String pokemon;
-
     public DoGet withTheResource(String resource){
         this.resource=resource;
-        return this;
-    }
-        public DoGet withThePokemon(String pokemon){
-        this.pokemon = pokemon;
         return this;
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                OurGet.to(resource+pokemon)
+                OurGet.to(resource)
                         .with(RequestSpecification::relaxedHTTPSValidation)
                         .with(request->request.contentType(ContentType.JSON))
         );

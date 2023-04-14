@@ -29,7 +29,11 @@ public class Headers {
         this.headersCollection.put("Content-Type", "text/xml;charset=UTF-8");
         this.headersCollection.put("SOAPAction", "");
         return headersCollection;
+    }
+    public Map<String, Object> getHeadersCollectionCalculadoraSubstract() {
+        this.headersCollection.put("Content-Type", "text/xml;charset=UTF-8");
+        this.headersCollection.put("SOAPAction", "http://tempuri.org/Subtract");
+        return headersCollection;
+    }
 }
 
-
-}

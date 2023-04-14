@@ -41,8 +41,7 @@ public class PokemonNameStepDefinitions extends ApiSetUp {
     public void elUsuarioHaceLaPeticionCon(String pokemon) {
         try {
             actor.attemptsTo(
-                    doGet().withTheResource(POKEMON.getValue())
-                    .withThePokemon(pokemon)
+                    doGet().withTheResource(POKEMON.getValue()+pokemon)
 
             );
         } catch (Exception e) {

@@ -7,11 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/rest/fotospatch.feature"},
+        features = {"src/test/resources/features/soap/currenciesbyname.feature"},
         glue = {"com.sofkau.stepdefinitions"},
         tags = {}
 )
-public class ActualizarFotoTest {
-
+public class CurrencyTest {
 }
-
