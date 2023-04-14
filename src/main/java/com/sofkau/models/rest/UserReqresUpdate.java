@@ -1,11 +1,8 @@
 package com.sofkau.models.rest;
-
-public class ResponseUpdateUser {
-
+public class UserReqresUpdate {
     private String nombre;
     private int edad;
     private String trabajo;
-    private String updatedAt;
 
     public String getNombre() {
         return nombre;
@@ -30,12 +27,5 @@ public class ResponseUpdateUser {
     public void setTrabajo(String trabajo) {
         this.trabajo = trabajo;
     }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }
+
