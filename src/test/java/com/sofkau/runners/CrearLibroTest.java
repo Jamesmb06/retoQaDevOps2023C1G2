@@ -7,11 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/soap/objectlist.feature"},
+        features = {"src/test/resources/features/rest/CrearLibro.feature"},
         glue = {"com.sofkau.stepdefinitions"},
-        tags = {}
+        tags = ""
 )
-public class ObjectListTest {
+public class CrearLibroTest {
 }
-
-
