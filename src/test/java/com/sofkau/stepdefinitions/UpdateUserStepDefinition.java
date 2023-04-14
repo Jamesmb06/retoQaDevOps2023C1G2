@@ -1,7 +1,6 @@
 package com.sofkau.stepdefinitions;
 
-import com.sofkau.models.rest.ResponseUpdateUserReqres;
-import com.sofkau.models.rest.UserReqresUpdate;
+import com.sofkau.models.rest.User;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,9 +18,9 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 public class UpdateUserStepDefinition extends ApiSetUp {
 
 
-    private UserReqresUpdate userReqresUpdate = new UserReqresUpdate();
+    private User user = new User();
     public static Logger LOGGER = Logger.getLogger(String.valueOf(UpdateUserStepDefinition.class));
-    ResponseUpdateUserReqres actualResponseUpdateUserReqres =new ResponseUpdateUserReqres();
+    User actualResponseUpdateUserReqres =new User();
 
     @Given("que estoy apuntando con un endpoint a la api de reqresin")
     public void queEstoyApuntandoConUnEndpointALaApiDeReqresIn() {
@@ -32,13 +31,13 @@ public class UpdateUserStepDefinition extends ApiSetUp {
     @When("envio la peticion put con el {string} de el usuario el {string},{int} y {string}")
     public void envioLaPeticionPutConElDeElUsuarioElY(String id, String nombre, Integer edad, String trabajo) {
         try{
-            userReqresUpdate.setNombre(nombre);
-            userReqresUpdate.setEdad(edad);
-            userReqresUpdate.setTrabajo(trabajo);
+            user.setNombre(nombre);
+            user.setEdad(edad);
+            user.setTrabajo(trabajo);
             actor.attemptsTo(
                     doPut()
                             .withTheResource(RESOURCES_PUT.getValue()+id)
-                            .andTheRequestBody(userReqresUpdate)
+                            .andTheRequestBody(user)
             );
         }catch (Exception e){
             LOGGER.info("Fallo enviando la informacion");
@@ -68,11 +67,11 @@ public class UpdateUserStepDefinition extends ApiSetUp {
                     seeThat("Retorna informacion",
                             act-> actualResponseUpdateUserReqres, notNullValue()),
                     seeThat("Se recibe el nombre del usuario actualizado",
-                            nom-> userReqresUpdate.getNombre(), equalTo(actualResponseUpdateUserReqres.getNombre())),
+                            nom-> user.getNombre(), equalTo(actualResponseUpdateUserReqres.getNombre())),
                     seeThat("Se recibe la edad del usuario actualizado",
-                            ed-> userReqresUpdate.getEdad(), equalTo(actualResponseUpdateUserReqres.getEdad())),
+                            ed-> user.getEdad(), equalTo(actualResponseUpdateUserReqres.getEdad())),
                     seeThat("Se recibe el trabajo del usuario actualizado",
-                            tra-> userReqresUpdate.getTrabajo(), equalTo(actualResponseUpdateUserReqres.getTrabajo())),
+                            tra-> user.getTrabajo(), equalTo(actualResponseUpdateUserReqres.getTrabajo())),
                     seeThat("La fecha de actualizacion no es vacia",
                             fecha-> actualResponseUpdateUserReqres.getUpdatedAt(),notNullValue())
             );
@@ -81,5 +80,5 @@ public class UpdateUserStepDefinition extends ApiSetUp {
             Assertions.fail();
         }
         LOGGER.info("Fin de la automatizacion");
-    }
+}
 }

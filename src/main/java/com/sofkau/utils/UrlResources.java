@@ -4,6 +4,18 @@ public enum UrlResources {
 
     SOAP_CAPITAL_BASE_URL("http://webservices.oorsprong.org/"),
     RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
+
+    BODY_PATH("src/test/resources/soapXml/filecapital.xml"),
+
+    RESOURCES_PUT_JSONPLACEHOLDER("comments/"),
+    DUMMYJSON_BASE_URL_GET("https://dummyjson.com/"),
+    RESOURCES_GET_DUMMYJSON("comments"),
+    SOAP_ZIPCODE_BASE_URL("https://graphical.weather.gov:443/"),
+    RESOURCE_ZIPCODE("xml/SOAP_server/ndfdXMLserver.php"),
+    BODY_ZIP_PATH("src/test/resources/soapXml/filezipcode.xml"),
+    SOAP_NUMEROS_DOLARES_BASE_URL("https://www.dataaccess.com/"),
+    RESOURCE_NUMEROS_DOLARES("webservicesserver/numberconversion.wso"),
+    BODY_NUMEROS_DOLARES_PATH("src/test/resources/soapXml/fileNumerosDolars.xml"),
     SOAP_CALCULADORA_BASE_URL("http://www.dneonline.com/"),
     BODY_RESTA_PATH("src/test/resources/soapXml/fileresta.xml"),
     RESOURCE_CALCULADORA("calculator.asmx"),
@@ -31,6 +43,7 @@ public enum UrlResources {
     RESOURCE_CALCULADORA_MULTIPLICAR("calculator.asmx"),
     BODY_MULTIPLICAR("src/test/resources/soapXml/filemultiplicar.xml"),
     BODY_PATH2("src/test/resources/soapXml/filecalculadora.xml");
+
 
     private final String value;
 

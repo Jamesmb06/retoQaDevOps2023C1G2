@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.logging.Logger;
 
-import static com.sofkau.questions.rest.ReturnPost.returnResponse;
+import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoPatch.doPatch;
 import static com.sofkau.utils.UrlResources.BASE_JSON_URL;
 import static com.sofkau.utils.UrlResources.PUT_JSON_URL;

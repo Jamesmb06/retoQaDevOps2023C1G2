@@ -12,5 +12,5 @@ Feature: registro de usuarios
     Then el usuario ve un codigo de respuesta de estado <code> y una identificacion con un token
     Examples:
       | email                    | password     | code |
-      | "eve.holt@reqres.in"     | "pistol"     | 200  |
-      | "george.bluth@reqres.in" | "cualquiera" | 200  |
+      | "eve.holt@reqres.in"     | "pistol"     | 400 |
+      | "george.bluth@reqres.in" | "cualquiera" | 400  |

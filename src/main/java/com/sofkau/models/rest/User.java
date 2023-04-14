@@ -3,14 +3,14 @@ public class User {
     private String nombre;
     private int edad;
     private String trabajo;
-    private String email;
+    private String updatedAt;
 
-    public String getEmail() {
-        return email;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getPassword() {
@@ -45,6 +45,6 @@ public class User {
 
     public void setTrabajo(String trabajo) {
         this.trabajo = trabajo;
-    }
+}
 
 }

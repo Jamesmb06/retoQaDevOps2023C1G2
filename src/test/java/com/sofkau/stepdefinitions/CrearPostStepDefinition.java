@@ -15,7 +15,7 @@ import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
 import java.util.logging.Logger;
 
-import static com.sofkau.questions.rest.ReturnPost.returnResponse;
+import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoPost.doPost;
 import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;

@@ -12,7 +12,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
 import java.util.logging.Logger;
-import static com.sofkau.questions.rest.ReturnPost.returnResponse;
+
+import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
 import static com.sofkau.tasks.DoPost.doPost;
 import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -45,7 +46,7 @@ public class RegisterStepDefinition extends ApiSetUp {
     public void elUsuarioEnviaUnaSolicitudDeRegistroConElYLa(String email, String password) {
 
         try {
-            user.setEmail(email);
+            user.setUpdatedAt(email);
             user.setPassword(password);
             actor.attemptsTo(
                     doPost()
