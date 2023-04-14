@@ -2,7 +2,6 @@ package com.sofkau.stepdefinitions;
 
 
 import com.sofkau.models.rest.Posts;
-import com.sofkau.models.rest.ResponseUpdateUser;
 import com.sofkau.models.rest.User;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
@@ -31,7 +30,7 @@ public class CrearPostStepDefinition extends ApiSetUp {
 
     private User user = new User();
     public static Logger LOGGER = Logger.getLogger(String.valueOf(CrearPostStepDefinition.class));
-    ResponseUpdateUser actualResponseUpdateUser = new ResponseUpdateUser();
+
 
     @Given("el usuario esta en la pagina para crear post")
     public void elUsuarioEstaEnLaPaginaParaCrearPost() {

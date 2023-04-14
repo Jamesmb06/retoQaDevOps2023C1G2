@@ -1,17 +1,20 @@
 package com.sofkau.questions.rest;
 
-import com.sofkau.models.rest.ResponseUpdateUser;
+
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-public class ReturnResponse implements Question<ResponseUpdateUser> {
+
+public class ReturnResponse implements Question<Response> {
     @Override
-    public ResponseUpdateUser answeredBy(Actor actor) {
-        return SerenityRest.lastResponse().as(ResponseUpdateUser.class);
+    public Response answeredBy(Actor actor) {
+        return (Response) SerenityRest.lastResponse().body();
     }
 
-    public static ReturnResponse returnUpdateJsonResponse(){
+    public static ReturnResponse returnResponse(){
         return new ReturnResponse();
     }
 }
+

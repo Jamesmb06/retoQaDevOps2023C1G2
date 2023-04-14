@@ -12,11 +12,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Assertions;
 import java.util.logging.Logger;
-
 import static com.sofkau.questions.rest.ReturnPost.returnResponse;
 import static com.sofkau.tasks.DoPost.doPost;
-import static com.sofkau.utils.UrlResources.REQRES_BASE_URL_PUT;
-import static com.sofkau.utils.UrlResources.RESOURCES_POST;
+import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -32,7 +30,7 @@ public class RegisterStepDefinition extends ApiSetUp {
     public void elUsuarioEstaEnLaPaginaDeRegistro() {
 
         try {
-            setUp(REQRES_BASE_URL_PUT.getValue());
+            setUp(REQRES_BASE_URL.getValue());
 
             LOGGER.info("Inicio de automatización ");
         } catch (Exception e) {

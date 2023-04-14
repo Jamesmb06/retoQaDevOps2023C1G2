@@ -9,17 +9,16 @@ public class DoPost implements Task {
     private String resource;
     private Object requestBody;
 
-
-
-    public DoPost withTheResource(String resource){
-        this.resource=resource;
+    public DoPost withTheResource(String resource) {
+        this.resource = resource;
         return this;
     }
 
-    public DoPost andTheRequestBody(Object requestBody){
-        this.requestBody=requestBody;
+    public DoPost andTheRequestBody(Object requestBody) {
+        this.requestBody = requestBody;
         return this;
     }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -33,7 +32,7 @@ public class DoPost implements Task {
 
     }
 
-    public static DoPost doPost(){
+    public static DoPost doPost() {
         return new DoPost();
-    }
+        }
 }
