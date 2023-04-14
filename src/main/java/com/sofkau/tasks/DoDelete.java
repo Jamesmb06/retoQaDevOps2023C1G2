@@ -26,4 +26,3 @@ public class DoDelete implements Task {
     }
     public static DoDelete doDelete() { return new DoDelete() ;}
 }
-

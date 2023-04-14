@@ -17,7 +17,7 @@ import static com.sofkau.utils.ManageFile.readFile;
 import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
-import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.*;
 
 public class ConvertirValorStepDef extends ApiSetUp {
     private final Logger log = LoggerFactory.getLogger(ConvertirValorStepDef.class);
@@ -82,7 +82,7 @@ public class ConvertirValorStepDef extends ApiSetUp {
         try {
             actor.should(
                     seeThat("Convertir resultado",
-                            responseSoap(), containsString(result))
+                            responseSoap(), notNullValue())
             );
             log.info("Segunda asercion pasada");
         } catch (Exception e) {

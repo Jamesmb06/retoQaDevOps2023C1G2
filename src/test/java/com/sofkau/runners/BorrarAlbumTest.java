@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/rest"},
+        features = {"src/test/resources/features/rest/BorrarAlbum.feature"},
         glue = {"com.sofkau.stepdefinitions"},
-        tags = "@DeleteAlbum"
+        tags = ""
 )
 public class BorrarAlbumTest {
 }

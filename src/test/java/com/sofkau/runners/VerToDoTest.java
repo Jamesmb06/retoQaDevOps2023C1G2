@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/rest"},
+        features = {"src/test/resources/features/rest/VerToDo.feature"},
         glue = {"com.sofkau.stepdefinitions"},
-        tags = "@TODO"
+        tags = ""
 )
 public class VerToDoTest {
 }
