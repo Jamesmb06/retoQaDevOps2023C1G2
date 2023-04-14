@@ -17,7 +17,7 @@ public class ManageFile {
         StringBuilder stringBuilder= new StringBuilder();
         try (BufferedReader br= Files.newBufferedReader(Paths.get(path))){
             while((line= br.readLine())!=null)
-                stringBuilder.append(line+"\n");
+                stringBuilder.append(line).append("\n");
 
         }catch (IOException ioException){
             LOGGER.warn(" **** tengo problemas con la ruta especificada de los archivos***");

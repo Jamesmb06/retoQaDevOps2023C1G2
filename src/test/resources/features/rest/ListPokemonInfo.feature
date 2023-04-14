@@ -10,5 +10,5 @@ Feature: Yo como usuario de la Poke API
     And La respuesta debe contener un body con toda la info <id> y <main_region>
     Examples:
       | gen | id  | main_region |
-      | "1/" | "1" | "kanto"     |
-      | "2/" | "2" | "johto"     |
+      | "1" | "1" | "kanto"     |
+      | "2" | "2" | "johto"     |

@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/soap/currenciesbyname.feature"},
+        features = {"src/test/resources/features/soap/numerosaletras.feature"},
         glue = {"com.sofkau.stepdefinitions"},
-        tags = {}
+        tags = { }
 )
-public class CurrencyTest {
+public class ConversionNumerosTest {
 }
