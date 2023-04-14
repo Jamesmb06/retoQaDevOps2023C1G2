@@ -22,6 +22,14 @@ buildscript {
         classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0")
     }
 }
+sonarqube {
+    properties {
+        property 'sonar.host.url', 'https://b895-200-118-62-122.ngrok-free.app' // URL del servidor de SonarQube
+        property 'sonar.login', 'sqp_ebb0050d0fc9d583ae32d702b7c1c5e723ebb3ec' // Token de acceso de SonarQube
+        property 'sonar.projectKey', 'retoQaDevOps2023C1G2' // Clave del proyecto en SonarQube
+        property 'sonar.projectName', 'retoQaDevOps2023C1G2' // Nombre del proyecto en SonarQube
+    }
+}
 
 ext {
     junitVersion = '5.7.2'
