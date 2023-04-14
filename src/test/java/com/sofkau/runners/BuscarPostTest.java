@@ -7,10 +7,11 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/rest/ActualizarComentarios.feature"},
+        features = {"src/test/resources/features/rest/buscarpost.feature"},
         glue = {"com.sofkau.stepdefinitions"},
         tags = {}
 )
-public class ActualizarComentariosTest {
-
+public class BuscarPostTest {
 }
+
+

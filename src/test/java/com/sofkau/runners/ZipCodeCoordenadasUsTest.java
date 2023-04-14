@@ -7,11 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/soap/objectlist.feature"},
+        features = {"src/test/resources/features/soap/ZipCodeCoordenadasUS.feature"},
         glue = {"com.sofkau.stepdefinitions"},
         tags = {}
 )
-public class ObjectList {
+public class ZipCodeCoordenadasUsTest {
 }
-
-
