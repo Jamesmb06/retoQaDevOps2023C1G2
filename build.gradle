@@ -31,7 +31,6 @@ sonarqube {
     }
 }
 
-
 ext {
     junitVersion = '5.7.2'
     serenityVersion = '2.2.9'
