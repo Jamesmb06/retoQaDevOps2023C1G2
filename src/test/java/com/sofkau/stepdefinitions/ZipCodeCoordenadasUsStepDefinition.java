@@ -20,10 +20,10 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class ZipCode_CoordenadasUsStepDefinition extends ApiSetUp {
+public class ZipCodeCoordenadasUsStepDefinition extends ApiSetUp {
 
     String body;
-    private static final Logger LOGGER = Logger.getLogger(ZipCode_CoordenadasUsStepDefinition.class);
+    private static final Logger LOGGER = Logger.getLogger(ZipCodeCoordenadasUsStepDefinition.class);
 
     @Given("un usuario quiere saber las coordenadas de un codigo postal")
     public void unUsuarioQuiereSaberLasCoordenadasDeUnCodigoPostal() {

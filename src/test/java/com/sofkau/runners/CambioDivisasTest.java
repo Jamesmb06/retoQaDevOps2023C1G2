@@ -7,11 +7,12 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"src/test/resources/features/rest/ServicioGET_Comentarios.feature"},
+        features = {"src/test/resources/features/soap/convertidordedivisas.feature"},
         glue = {"com.sofkau.stepdefinitions"},
         tags = {}
+
+
 )
-public class GetComentariosTest {
+public class CambioDivisasTest {
 
 }
-
