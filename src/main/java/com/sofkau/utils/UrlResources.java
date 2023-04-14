@@ -1,12 +1,8 @@
 package com.sofkau.utils;
 
 public enum UrlResources {
-
-    REQRES_BASE_URL_PUT("https://reqres.in/api/"),
-    RESOURCES_PUT("users/"),
     SOAP_CAPITAL_BASE_URL("http://webservices.oorsprong.org/"),
     RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
-    BODY_PATH("src/test/resources/soapXml/filecapital.xml"),
     ANIME_JINKAN_BASE_URL("https://api.jikan.moe/v4"),
     ANIME_JINKAN_RESOURCE("/anime/"),
     PLACE_HOLDER_BASE_URL("https://jsonplaceholder.typicode.com/"),
