@@ -76,9 +76,9 @@ public class BanderaPorCodigoISOStepDefinition extends ApiSetUp {
 
             if (Statushttp == 200){
                 actor.should(
-                    seeThat("la ruta para la imagen de la bandera es:",
-                            responseSoap(), containsString(rutaBandera))
-            );
+                        seeThat("la ruta para la imagen de la bandera es:",
+                                responseSoap(), containsString(rutaBandera))
+                );
 
 
             }
@@ -91,4 +91,3 @@ public class BanderaPorCodigoISOStepDefinition extends ApiSetUp {
 
     }
 }
-
