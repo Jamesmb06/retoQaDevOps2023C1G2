@@ -25,8 +25,12 @@ public enum UrlResources {
     SOAP_DIVISA_BASE_URL("http://fx.currencysystem.com/"),
     RESOURCE_DIVISA("webservices/CurrencyServer4.asmx"),
     BODY_PATH1("src/test/resources/soapXml/filedivisas.xml"),
+    RESOURCES_PUT("api/users/"),
+    RESOURCE_BAYAS("api/v2/berry/"),
+    RESOURCE_JUEGO("api/v2/version/"),
+    RESOURCE_CALCULADORA_MULTIPLICAR("calculator.asmx"),
+    BODY_MULTIPLICAR("src/test/resources/soapXml/filemultiplicar.xml"),
     BODY_PATH2("src/test/resources/soapXml/filecalculadora.xml");
-
 
     private final String value;
 

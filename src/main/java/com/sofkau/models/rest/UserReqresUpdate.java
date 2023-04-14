@@ -1,5 +1,5 @@
 package com.sofkau.models.rest;
-public class User {
+public class UserReqresUpdate {
     private String nombre;
     private int edad;
     private String trabajo;
@@ -48,3 +48,4 @@ public class User {
     }
 
 }
+

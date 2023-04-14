@@ -1,27 +1,11 @@
 package com.sofkau.models.rest;
-public class User {
+
+public class ResponseUpdateUserReqres {
+
     private String nombre;
     private int edad;
     private String trabajo;
-    private String email;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String password;
+    private String updatedAt;
 
     public String getNombre() {
         return nombre;
@@ -47,4 +31,11 @@ public class User {
         this.trabajo = trabajo;
     }
 
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

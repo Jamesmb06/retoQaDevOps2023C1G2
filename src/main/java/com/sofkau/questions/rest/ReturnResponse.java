@@ -15,4 +15,3 @@ public class ReturnResponse implements Question<Response> {
         return new ReturnResponse();
     }
 }
-
