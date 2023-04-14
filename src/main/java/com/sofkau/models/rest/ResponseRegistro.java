@@ -2,15 +2,16 @@ package com.sofkau.models.rest;
 
 
 public class ResponseRegistro {
-    private Integer id;
+    private String id;
     private String token;
     private String error;
+    private String title;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -28,5 +29,13 @@ public class ResponseRegistro {
 
     public void setError(String error) {
         this.error = error;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

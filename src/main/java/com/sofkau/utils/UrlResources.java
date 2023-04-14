@@ -4,9 +4,12 @@ public enum UrlResources {
 
     SOAP_CAPITAL_BASE_URL("http://webservices.oorsprong.org/"),
     RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
-
-    BODY_PATH("src/test/resources/soapXml/filecapital.xml"),
-
+    SOAP_CONTRIES("http://eaf.ema.europa.eu/"),
+    RESOURCES_CONTRIES("eaf/services/EutctService?wsdl"),
+    BODY_CONTRIES_PATH("src/test/resources/soapXml/filecontrieslist.xml"),
+    BODY_OBJECT_PATH("src/test/resources/soapXml/fileobjectlist.xml"),
+    BODY_SPECIES_PATH("src/test/resources/soapXml/filespecies.xml"),
+    BODY_OBJECTPHARMACY_PATH("src/test/resources/soapXml/fileobjectspharmacy.xml"),
     RESOURCES_PUT_JSONPLACEHOLDER("comments/"),
     DUMMYJSON_BASE_URL_GET("https://dummyjson.com/"),
     RESOURCES_GET_DUMMYJSON("comments"),
@@ -43,7 +46,6 @@ public enum UrlResources {
     RESOURCE_CALCULADORA_MULTIPLICAR("calculator.asmx"),
     BODY_MULTIPLICAR("src/test/resources/soapXml/filemultiplicar.xml"),
     BODY_PATH2("src/test/resources/soapXml/filecalculadora.xml");
-
 
     private final String value;
 

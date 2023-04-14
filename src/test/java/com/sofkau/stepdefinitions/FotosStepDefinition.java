@@ -1,6 +1,6 @@
 package com.sofkau.stepdefinitions;
 
-import com.sofkau.models.rest.Fotos;
+import com.sofkau.models.rest.Photo;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,7 +24,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class FotosStepDefinition extends ApiSetUp {
-    Fotos fotos = new Fotos();
+    Photo fotos = new Photo();
     JSONObject responseBody = null;
     JSONParser parser = new JSONParser();
     public static Logger LOGGER = Logger.getLogger(String.valueOf(FotosStepDefinition.class));

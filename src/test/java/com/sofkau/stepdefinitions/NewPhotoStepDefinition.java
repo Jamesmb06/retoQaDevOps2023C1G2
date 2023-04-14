@@ -2,7 +2,7 @@ package com.sofkau.stepdefinitions;
 
 
 import com.sofkau.models.rest.Photo;
-import com.sofkau.models.rest.ResponseNewPhoto;
+import com.sofkau.models.rest.ResponseRegistro;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -59,7 +59,7 @@ public class NewPhotoStepDefinition extends ApiSetUp {
     @Then("la respuesta debe incluir los datos de la nueva foto:")
     public void laRespuestaDebeIncluirLosDatosDeLaNuevaFoto() {
         try {
-            ResponseNewPhoto actualResponse = returnNewPhotoResponse().answeredBy(actor);
+            ResponseRegistro actualResponse = returnNewPhotoResponse().answeredBy(actor);
             actor.should(
                     seeThat("Retorna info",
                             act -> actualResponse, notNullValue()),

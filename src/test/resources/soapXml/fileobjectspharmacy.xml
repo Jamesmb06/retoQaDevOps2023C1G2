@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.eaf.ema.europa.eu/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:getAdministrationDevices>
+            <!--Optional:-->
+            <ser:type>12233445555</ser:type>
+        </ser:getAdministrationDevices>
+    </soapenv:Body>
+</soapenv:Envelope>

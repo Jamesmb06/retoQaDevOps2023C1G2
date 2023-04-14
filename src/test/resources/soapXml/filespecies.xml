@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.eaf.ema.europa.eu/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:getMRLSpecies>
+            <!--Optional:-->
+            <ser:type>97890</ser:type>
+        </ser:getMRLSpecies>
+    </soapenv:Body>
+</soapenv:Envelope>
