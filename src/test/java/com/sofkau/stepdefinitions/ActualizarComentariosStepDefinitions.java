@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.logging.Logger;
 
-import static com.sofkau.questions.rest.ReturnResponse.returnResponse;
+
 import static com.sofkau.questions.rest.ReturnUpdateJsonResponse.responseRegistro;
+
 import static com.sofkau.tasks.DoPut.doPut;
 import static com.sofkau.utils.UrlResources.BASE_JSON_URL;
 import static com.sofkau.utils.UrlResources.RESOURCES_PUT_JSONPLACEHOLDER;

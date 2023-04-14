@@ -2,6 +2,14 @@ package com.sofkau.utils;
 
 public enum UrlResources {
 
+    SOAP_CAPITAL_BASE_URL("http://webservices.oorsprong.org/"),
+    RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
+    ANIME_JINKAN_BASE_URL("https://api.jikan.moe/v4"),
+    ANIME_JINKAN_RESOURCE("/anime/"),
+    PLACE_HOLDER_BASE_URL("https://jsonplaceholder.typicode.com/"),
+    PLACE_DELETE_POST("posts/"),
+    BODY_PATH_ISO_NUMERO_CELULAR  ("src/test/resources/soapXml/filecodigoISOnumerocelular.xml"),
+    BODY_PATH_ISO_BANDERA("src/test/resources/soapXml/filecodigoISObandera.xml"),
     SOAP_CAMEL_CASE_BASE_URL("https://www.dataaccess.com/webservicesserver/"),
     RESOURCE_CAMEL_CASE("TextCasing.wso"),
     BODY_CAMEL_CASE_PATH("src/test/resources/soapXml/filecamelcase.xml"),
@@ -10,8 +18,6 @@ public enum UrlResources {
     COMMENTS_BY_POST("comments?postId="),
     RICK_AND_MORTY_BASE_URL("https://rickandmortyapi.com/api"),
     RESOURCE_RICKANDMORTY("/character/"),
-    SOAP_CAPITAL_BASE_URL("http://webservices.oorsprong.org/"),
-    RESOURCE_CAPITAL("websamples.countryinfo/CountryInfoService.wso"),
     SOAP_CONTRIES("http://eaf.ema.europa.eu/"),
     RESOURCES_CONTRIES("eaf/services/EutctService?wsdl"),
     BODY_CONTRIES_PATH("src/test/resources/soapXml/filecontrieslist.xml"),
@@ -54,6 +60,7 @@ public enum UrlResources {
     RESOURCE_CALCULADORA_MULTIPLICAR("calculator.asmx"),
     BODY_MULTIPLICAR("src/test/resources/soapXml/filemultiplicar.xml"),
     BODY_PATH2("src/test/resources/soapXml/filecalculadora.xml");
+
 
     private final String value;
 

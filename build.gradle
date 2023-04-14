@@ -31,12 +31,18 @@ sonarqube {
     }
 }
 
+
+
 ext {
     junitVersion = '5.7.2'
     serenityVersion = '2.2.9'
     serenityCucumberVersion = '2.2.6'
     apachePoiVersion = '3.17'
 }
+
+
+
+
 
 dependencies {
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
