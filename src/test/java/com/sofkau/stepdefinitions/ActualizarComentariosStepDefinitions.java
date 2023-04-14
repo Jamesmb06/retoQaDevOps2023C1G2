@@ -1,7 +1,7 @@
 package com.sofkau.stepdefinitions;
 
 import com.sofkau.models.rest.ResponseUpdateUser;
-import com.sofkau.models.rest.User;
+import com.sofkau.models.rest.UserComments;
 import com.sofkau.setup.ApiSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,7 +17,7 @@ import static com.sofkau.utils.UrlResources.*;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
 public class ActualizarComentariosStepDefinitions extends ApiSetUp {
-    private User user= new User();
+    private UserComments userComments = new UserComments();
     public static java.util.logging.Logger LOGGER = Logger.getLogger(String.valueOf(ActualizarComentariosStepDefinitions.class));
     ResponseUpdateUser actualResponseUpdateUser=new ResponseUpdateUser();
 
@@ -35,13 +35,13 @@ public class ActualizarComentariosStepDefinitions extends ApiSetUp {
     @When("el usuario envia una solicitud de actualizacion con el {int} el {string} el {string} y el {string}")
     public void elUsuarioEnviaUnaSolicitudDeActualizacionConElElElYEl(Integer id, String name, String body, String email) {
         try{
-            user.setNombre(name);
-            user.setBody(body);
-            user.setEmail(email);
+            userComments.setNombre(name);
+            userComments.setBody(body);
+            userComments.setEmail(email);
             actor.attemptsTo(
                     doPut()
                             .withTheResource(RESOURCES_PUT_JSONPLACEHOLDER.getValue()+id)
-                            .andTheRequestBody(user)
+                            .andTheRequestBody(userComments)
             );
         }catch (Exception e){
             LOGGER.info("Fallo enviando la informacion");

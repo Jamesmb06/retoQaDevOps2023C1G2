@@ -1,8 +1,6 @@
 package com.sofkau.models.rest;
-public class User {
+public class UserComments {
     private String nombre;
-    private int edad;
-    private String trabajo;
     private String body;
     private String email;
 
